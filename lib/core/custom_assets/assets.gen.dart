@@ -18,8 +18,16 @@ class $AssetsIconsGen {
   /// File path: assets/icons/apple _inc.svg
   SvgGenImage get appleInc => const SvgGenImage('assets/icons/apple _inc.svg');
 
+  /// File path: assets/icons/apple _signin.png
+  AssetGenImage get appleSignin =>
+      const AssetGenImage('assets/icons/apple _signin.png');
+
   /// File path: assets/icons/apples.png
   AssetGenImage get apples => const AssetGenImage('assets/icons/apples.png');
+
+  /// File path: assets/icons/arrow_back_grey.png
+  AssetGenImage get arrowBackGrey =>
+      const AssetGenImage('assets/icons/arrow_back_grey.png');
 
   /// File path: assets/icons/back_white.svg
   SvgGenImage get backWhite => const SvgGenImage('assets/icons/back_white.svg');
@@ -46,9 +54,6 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email.svg
   SvgGenImage get email => const SvgGenImage('assets/icons/email.svg');
 
-  /// File path: assets/icons/facebook.svg
-  SvgGenImage get facebook => const SvgGenImage('assets/icons/facebook.svg');
-
   /// File path: assets/icons/forward_black.svg
   SvgGenImage get forwardBlack =>
       const SvgGenImage('assets/icons/forward_black.svg');
@@ -67,8 +72,8 @@ class $AssetsIconsGen {
   /// File path: assets/icons/full_name.svg
   SvgGenImage get fullName => const SvgGenImage('assets/icons/full_name.svg');
 
-  /// File path: assets/icons/google.svg
-  SvgGenImage get google => const SvgGenImage('assets/icons/google.svg');
+  /// File path: assets/icons/google.png
+  AssetGenImage get google => const AssetGenImage('assets/icons/google.png');
 
   /// File path: assets/icons/graph.png
   AssetGenImage get graph => const AssetGenImage('assets/icons/graph.png');
@@ -120,9 +125,6 @@ class $AssetsIconsGen {
   SvgGenImage get transaction =>
       const SvgGenImage('assets/icons/transaction.svg');
 
-  /// File path: assets/icons/twitter.svg
-  SvgGenImage get twitter => const SvgGenImage('assets/icons/twitter.svg');
-
   /// File path: assets/icons/vegetables.svg
   SvgGenImage get vegetables =>
       const SvgGenImage('assets/icons/vegetables.svg');
@@ -130,7 +132,9 @@ class $AssetsIconsGen {
   /// List of all assets
   List<dynamic> get values => [
     appleInc,
+    appleSignin,
     apples,
+    arrowBackGrey,
     backWhite,
     bread,
     cart,
@@ -139,7 +143,6 @@ class $AssetsIconsGen {
     drinks,
     ellipsisWhite,
     email,
-    facebook,
     forwardBlack,
     forwardView,
     forwardWhite,
@@ -162,7 +165,6 @@ class $AssetsIconsGen {
     shopWhite,
     star,
     transaction,
-    twitter,
     vegetables,
   ];
 }

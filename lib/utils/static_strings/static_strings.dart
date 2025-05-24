@@ -3,17 +3,21 @@ class AppStrings {
   static const String appName = "Groc Shopy";
   static const String appTagLine = "Track items, \nCalculate, Together";
   static const String getStarted = "Get Started";
-  static const String coooooool = "Coooooool!";
+  static const String welcome = "Welcome";
 
   ///====================== Auth ========================
   static const String signUp = "Sign Up";
+  static const String signIn = "Sign In";
   static const String adminSignUp = "Admin Sign up";
   static const String or = "Or";
   static const String email = "Email";
   // static const String screen = "screen";
   static const String fullName = "Full Name";
+  static const String employee = "Employee";
+  static const String admin = "Admin";
 
   static const String enterYourEmailHint = "Enter your email";
+  static const String enterYourFullName = "Enter your full name";
   static RegExp emailRegexp = RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   static const String password = "Password";
@@ -28,7 +32,7 @@ class AppStrings {
   static const String forgotPassword = "Forget password?";
   static const String doYouHaveAnAccount = "Do you have an account?";
   static const String rememberMe = "Remember me";
-  static const String dontHaveAAccount = "Don’t have a account?";
+  static const String dontHaveAAccount = "Don’t have a account? ";
 
   ///====================== SubsCription ========================
   static const String subscribe = "Subscribe";

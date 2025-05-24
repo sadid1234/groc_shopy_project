@@ -13,9 +13,12 @@ class RoutePath {
   //=================== Auth screens ===================
   static const String login = 'login';
   static const String forgotPass = 'forgotPass';
+  static const String resetPassConfirm = 'resetPassConfirm';
   static const String resetPass = 'resetPass';
-  static const String varification = 'varification';
-  static const String signUp = 'signUp';
+  static const String verification = 'verification';
+  static const String resetPasswordSuccess = 'resetPasswordSuccess';
+  static const String adminSignUp = 'adminSignUp';
+  static const String auth = 'auth';
 
   //==================================== Worker screens =====================================
 

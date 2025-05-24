@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
+import '../../../core/routes/route_path.dart';
 import '../../../utils/app_colors/app_colors.dart';
 import '../../widgets/custom_bottons/custom_button/slider_button.dart';
 
@@ -23,6 +26,7 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Gap(280.h),
             Center(
               child: Image.asset(
                 Assets.icons.logo.path,
@@ -46,19 +50,23 @@ class SplashScreen extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   color: Color(0xff404040)),
             ),
+            Gap(92.h),
             SliderButton(
               onSlideCompleted: () {
-                print('Action completed!');
-                // Perform your action here
+                context.go(RoutePath.auth.addBasePath);
               },
+              initialText: AppStrings.getStarted,
+              completedText: AppStrings.welcome,
               initialIconPath: Assets.icons.forwardWhite.path,
               completedIconPath: Assets.icons.forwardBlack.path,
               height: 60,
-              width: 300,
+              width: double.infinity, // Works correctly now
               activeColor: AppColors.primaryColor,
               inactiveColor: Colors.white,
               buttonColor: Colors.white,
-            )
+              resetAfterCompletion: true,
+              padding: 4, // Optional auto-reset
+            ),
           ],
         ),
       ),
