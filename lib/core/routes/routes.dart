@@ -7,6 +7,7 @@ import 'package:groc_shopy/presentation/screens/auth/password_reset_confirm_scre
 import 'package:groc_shopy/presentation/screens/auth/set_new_password_screen.dart';
 import 'package:groc_shopy/presentation/screens/auth/update_password_success_screen.dart';
 import 'package:groc_shopy/presentation/screens/auth/verify_code_screen.dart';
+import 'package:groc_shopy/presentation/screens/home/home_screen.dart';
 
 import '../../presentation/screens/splash_screen/splash_screen.dart';
 import '../../presentation/widgets/error_screen/error_screen.dart';
@@ -14,7 +15,8 @@ import 'route_path.dart';
 
 class AppRouter {
   static final GoRouter initRoute = GoRouter(
-      initialLocation: RoutePath.splashScreen.addBasePath,
+      // initialLocation: RoutePath.splashScreen.addBasePath,
+      initialLocation: RoutePath.home.addBasePath,
       // navigatorKey: Get.key,
       debugLogDiagnostics: true,
       routes: [
@@ -99,7 +101,12 @@ class AppRouter {
 
         /// <<<<<<<<<<<<<<======================= Worker Route =======================>>>>>>>>>>>>>>>>>>
 
-        /// ==================== Worker Home ====================
+        /// ====================  Home ====================
+        GoRoute(
+          name: RoutePath.home,
+          path: RoutePath.home.addBasePath,
+          builder: (context, state) => HomeScreen(),
+        ),
 
         /// ==================== Worker Profile ====================
 

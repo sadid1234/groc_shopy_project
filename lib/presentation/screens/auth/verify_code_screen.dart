@@ -168,7 +168,7 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                       ),
                       decoration: InputDecoration(
                         isDense: true,
-                        contentPadding: EdgeInsets.symmetric(vertical: 56),
+                        contentPadding: EdgeInsets.symmetric(vertical: 45.h),
                         counterText: '',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),

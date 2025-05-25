@@ -38,8 +38,8 @@ class $AssetsIconsGen {
   /// File path: assets/icons/cart.svg
   SvgGenImage get cart => const SvgGenImage('assets/icons/cart.svg');
 
-  /// File path: assets/icons/coin.svg
-  SvgGenImage get coin => const SvgGenImage('assets/icons/coin.svg');
+  /// File path: assets/icons/coin.png
+  AssetGenImage get coin => const AssetGenImage('assets/icons/coin.png');
 
   /// File path: assets/icons/dairy.svg
   SvgGenImage get dairy => const SvgGenImage('assets/icons/dairy.svg');
@@ -81,6 +81,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
 
+  /// File path: assets/icons/language.png
+  AssetGenImage get language =>
+      const AssetGenImage('assets/icons/language.png');
+
   /// File path: assets/icons/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/icons/logo.png');
 
@@ -103,23 +107,23 @@ class $AssetsIconsGen {
   /// File path: assets/icons/plates.svg
   SvgGenImage get plates => const SvgGenImage('assets/icons/plates.svg');
 
-  /// File path: assets/icons/plus.svg
-  SvgGenImage get plus => const SvgGenImage('assets/icons/plus.svg');
+  /// File path: assets/icons/plus.png
+  AssetGenImage get plus => const AssetGenImage('assets/icons/plus.png');
 
   /// File path: assets/icons/profile.svg
   SvgGenImage get profile => const SvgGenImage('assets/icons/profile.svg');
 
-  /// File path: assets/icons/sales.svg
-  SvgGenImage get sales => const SvgGenImage('assets/icons/sales.svg');
+  /// File path: assets/icons/sales.png
+  AssetGenImage get sales => const AssetGenImage('assets/icons/sales.png');
 
   /// File path: assets/icons/scan.svg
   SvgGenImage get scan => const SvgGenImage('assets/icons/scan.svg');
 
-  /// File path: assets/icons/shop_white.svg
-  SvgGenImage get shopWhite => const SvgGenImage('assets/icons/shop_white.svg');
+  /// File path: assets/icons/shop.png
+  AssetGenImage get shop => const AssetGenImage('assets/icons/shop.png');
 
-  /// File path: assets/icons/star.svg
-  SvgGenImage get star => const SvgGenImage('assets/icons/star.svg');
+  /// File path: assets/icons/star.png
+  AssetGenImage get star => const AssetGenImage('assets/icons/star.png');
 
   /// File path: assets/icons/transaction.svg
   SvgGenImage get transaction =>
@@ -151,6 +155,7 @@ class $AssetsIconsGen {
     google,
     graph,
     home,
+    language,
     logo,
     logout,
     mastercard,
@@ -162,17 +167,34 @@ class $AssetsIconsGen {
     profile,
     sales,
     scan,
-    shopWhite,
+    shop,
     star,
     transaction,
     vegetables,
   ];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/brocoli.jpg
+  AssetGenImage get brocoli => const AssetGenImage('assets/images/brocoli.jpg');
+
+  /// File path: assets/images/dairy.png
+  AssetGenImage get dairy => const AssetGenImage('assets/images/dairy.png');
+
+  /// File path: assets/images/meat.png
+  AssetGenImage get meat => const AssetGenImage('assets/images/meat.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [brocoli, dairy, meat];
+}
+
 class Assets {
   const Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {
