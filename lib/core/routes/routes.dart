@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:go_router/go_router.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
+import 'package:groc_shopy/presentation/screens/main/main_screen.dart';
 import 'package:groc_shopy/presentation/screens/profile/profile_screen.dart';
 import 'package:groc_shopy/presentation/screens/auth/admin_signup_screen%20.dart';
 import 'package:groc_shopy/presentation/screens/auth/auth_screen.dart';
@@ -14,6 +15,7 @@ import 'package:groc_shopy/presentation/screens/home/home_screen.dart';
 import 'package:groc_shopy/presentation/screens/scan/scan_screen.dart';
 import 'package:groc_shopy/presentation/screens/transaction_history/transaction_history_screen.dart';
 
+import '../../presentation/screens/report/report_screen.dart';
 import '../../presentation/screens/scannedItemsScreen/scanned_items_screen.dart';
 import '../../presentation/screens/splash_screen/splash_screen.dart';
 import '../../presentation/widgets/error_screen/error_screen.dart';
@@ -21,8 +23,10 @@ import 'route_path.dart';
 
 class AppRouter {
   static final GoRouter initRoute = GoRouter(
-      // initialLocation: RoutePath.splashScreen.addBasePath,
-      initialLocation: RoutePath.home.addBasePath,
+      initialLocation: RoutePath.splashScreen.addBasePath,
+      // initialLocation: RoutePath.home.addBasePath,
+      // initialLocation: RoutePath.main.addBasePath,
+      // initialLocation: RoutePath.report.addBasePath,
       // initialLocation: RoutePath.transactionHistory.addBasePath,
       // initialLocation: RoutePath.profile.addBasePath,
       // initialLocation: RoutePath.scan.addBasePath,
@@ -117,6 +121,13 @@ class AppRouter {
 
         /// <<<<<<<<<<<<<<======================= Worker Route =======================>>>>>>>>>>>>>>>>>>
 
+        /// ====================  Main ====================
+        GoRoute(
+          name: RoutePath.main,
+          path: RoutePath.main.addBasePath,
+          builder: (context, state) => MainScreen(),
+        ),
+
         /// ====================  Home ====================
         GoRoute(
           name: RoutePath.home,
@@ -144,6 +155,13 @@ class AppRouter {
             final image = state.extra as File?;
             return ScannedItemsScreen(image: image);
           },
+        ),
+
+        /// ==================== Report ====================
+        GoRoute(
+          name: RoutePath.report,
+          path: RoutePath.report.addBasePath,
+          builder: (context, state) => ReportScreen(),
         ),
 
         /// ==================== Order/Worked History ====================

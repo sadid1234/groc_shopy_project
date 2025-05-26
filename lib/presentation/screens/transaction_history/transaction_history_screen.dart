@@ -85,7 +85,6 @@ class TransactionHistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavBar(),
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,

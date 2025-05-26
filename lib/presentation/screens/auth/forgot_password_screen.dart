@@ -8,6 +8,7 @@ import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
+import '../../../utils/text_style/text_style.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -42,12 +43,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const backgroundColor = Color(0xFFF5EFE6);
-    const buttonColor = AppColors.primaryColor;
-    const inputBackgroundColor = Color(0xFFFAF7F2);
-
     return Scaffold(
-      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
@@ -65,19 +61,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               const SizedBox(height: 30),
               Text(
                 'Forgot password',
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18.sp,
-                ),
+                style: AppTextStyles.inter14w600,
               ),
               const SizedBox(height: 8),
               Text(
                 'Please enter your email to reset the password',
-                style: GoogleFonts.roboto(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey,
-                  fontSize: 14.sp,
-                ),
+                style: AppTextStyles.roboto16w600DarkGray,
               ),
               const SizedBox(height: 20),
               Text(
@@ -98,13 +87,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: inputBackgroundColor,
+                  fillColor: AppColors.lightGreyTextB3B3B3,
                   hintText: AppStrings.enterYourEmailHint,
                   hintStyle: GoogleFonts.poppins(
                     color: Color(0xffB3B3B3),
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
                   ),
+                  hintStyle: AppTextStyles.roboto14w500Black50opacity,
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                   border: OutlineInputBorder(

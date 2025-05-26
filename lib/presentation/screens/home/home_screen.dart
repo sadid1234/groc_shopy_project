@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:groc_shopy/core/routes/route_path.dart';
+import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
@@ -71,18 +74,55 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 6),
-                        Container(
-                          height: 24.h,
-                          width: 24.w,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFD9D9D9),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Image.asset(
-                            Assets.icons.language.path,
-                            // color: Colors.black,
-                            height: 24,
-                            width: 24,
+                        GestureDetector(
+                          onTap: () async {
+                            final RenderBox overlay = Overlay.of(context)
+                                .context
+                                .findRenderObject() as RenderBox;
+
+                            final selected = await showMenu<String>(
+                              context: context,
+                              position: RelativeRect.fromRect(
+                                Rect.fromPoints(
+                                  Offset(overlay.size.width - 56,
+                                      80), // position near icon, adjust as needed
+                                  Offset(overlay.size.width - 16, 120),
+                                ),
+                                Offset.zero & overlay.size,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    16), // Rounded corners here
+                              ),
+                              items: [
+                                PopupMenuItem(
+                                  value: 'en',
+                                  child: Text('English'),
+                                ),
+                                PopupMenuItem(
+                                  value: 'de',
+                                  child: Text('German'),
+                                ),
+                              ],
+                            );
+
+                            if (selected != null) {
+                              print('Selected language: $selected');
+                              // your language switching logic here
+                            }
+                          },
+                          child: Container(
+                            height: 24.h,
+                            width: 24.w,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFD9D9D9),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Image.asset(
+                              Assets.icons.language.path,
+                              height: 24,
+                              width: 24,
+                            ),
                           ),
                         ),
                       ],
@@ -92,58 +132,63 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 24),
 
                 // Monthly Report Card
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF0F0F0),
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x40FFD673), // 25% opacity of #FFD673
-                        offset: Offset(0, 2), // X=0, Y=2
-                        blurRadius: 2,
-                        spreadRadius: 0,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '25 April, 2025',
-                            style: GoogleFonts.roboto(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xff5B5B5B),
-                            ),
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            'Monthly Report',
-                            style: GoogleFonts.roboto(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xff5B5B5B),
-                            ),
-                          ),
-                        ],
-                      ),
-                      CircleAvatar(
-                        radius: 25.r,
-
-                        backgroundColor: Color(0xFF0000000)
-                            .withOpacity(0.05), // grey background
-                        child: Image.asset(
-                          Assets.icons.graph.path,
-                          height: 48.h,
-                          width: 48.w,
-                          // color: Colors.black,
+                InkWell(
+                  onTap: () {
+                    context.push(RoutePath.report.addBasePath);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF0F0F0),
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0x40FFD673), // 25% opacity of #FFD673
+                          offset: Offset(0, 2), // X=0, Y=2
+                          blurRadius: 2,
+                          spreadRadius: 0,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '25 April, 2025',
+                              style: GoogleFonts.roboto(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xff5B5B5B),
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              'Monthly Report',
+                              style: GoogleFonts.roboto(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xff5B5B5B),
+                              ),
+                            ),
+                          ],
+                        ),
+                        CircleAvatar(
+                          radius: 25.r,
+
+                          backgroundColor: Color(0xFF0000000)
+                              .withOpacity(0.05), // grey background
+                          child: Image.asset(
+                            Assets.icons.graph.path,
+                            height: 48.h,
+                            width: 48.w,
+                            // color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 24),
@@ -549,7 +594,6 @@ class HomeScreen extends StatelessWidget {
       ),
 
       // Bottom Navigation Bar
-      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 

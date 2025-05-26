@@ -10,6 +10,7 @@ import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
+import '../../../utils/text_style/text_style.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -35,12 +36,7 @@ class AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final primaryYellow = AppColors.primaryColor;
-    final bgColor = AppColors.backgroundColor;
-    final black50 = Colors.black.withOpacity(0.5);
-
     return Scaffold(
-      backgroundColor: bgColor,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -58,11 +54,7 @@ class AuthScreenState extends State<AuthScreen> {
                   Gap(15.h),
                   Text(
                     AppStrings.signIn,
-                    style: GoogleFonts.inter(
-                      color: AppColors.primaryColor,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: AppTextStyles.inter16w700Black,
                   ),
                   Gap(25.h),
                   // Tab bar for Employee/Admin
@@ -113,14 +105,8 @@ class AuthScreenState extends State<AuthScreen> {
                       onTap: () {
                         context.push(RoutePath.forgotPass.addBasePath);
                       },
-                      child: Text(
-                        AppStrings.forgotPassword,
-                        style: GoogleFonts.roboto(
-                          color: AppColors.primaryColor,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+                      child: Text(AppStrings.forgotPassword,
+                          style: AppTextStyles.roboto14w500Yellow),
                     ),
                   ),
                   // Remember Me checkbox
@@ -133,14 +119,11 @@ class AuthScreenState extends State<AuthScreen> {
                             rememberMe = val ?? false;
                           });
                         },
-                        activeColor: primaryYellow,
+                        activeColor: AppColors.yellowFFD673,
                       ),
                       Text(
                         AppStrings.rememberMe,
-                        style: GoogleFonts.roboto(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: AppTextStyles.roboto14w400Black,
                       ),
                     ],
                   ),
@@ -153,22 +136,18 @@ class AuthScreenState extends State<AuthScreen> {
                     height: 48,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: primaryYellow,
+                        backgroundColor: AppColors.yellowFFD673,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                         elevation: 0,
                       ),
                       onPressed: () {
-                        // Handle sign in logic here
+                        context.push(RoutePath.main.addBasePath);
                       },
                       child: Text(
                         AppStrings.signIn,
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16.sp,
-                        ),
+                        style: AppTextStyles.inter16w700White,
                       ),
                     ),
                   ),
@@ -181,11 +160,7 @@ class AuthScreenState extends State<AuthScreen> {
                     children: [
                       Text(
                         AppStrings.dontHaveAAccount,
-                        style: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14.sp,
-                        ),
+                        style: AppTextStyles.roboto14w400Black,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -202,7 +177,7 @@ class AuthScreenState extends State<AuthScreen> {
                               child: Text(
                                 AppStrings.signUp, // Your text
                                 style: GoogleFonts.roboto(
-                                  color: primaryYellow,
+                                  color: AppColors.yellowFFD673,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14.sp,
                                 ),
@@ -216,7 +191,8 @@ class AuthScreenState extends State<AuthScreen> {
                               right: 0,
                               child: Container(
                                 height: 2, // Thickness of the underline
-                                color: primaryYellow, // Color of the underline
+                                color: AppColors
+                                    .yellowFFD673, // Color of the underline
                               ),
                             ),
                           ],
@@ -229,11 +205,7 @@ class AuthScreenState extends State<AuthScreen> {
 
                   Text(
                     AppStrings.or,
-                    style: GoogleFonts.roboto(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                    ),
+                    style: AppTextStyles.roboto14w500Black,
                   ),
 
                   Gap(31.h),
@@ -267,10 +239,8 @@ class AuthScreenState extends State<AuthScreen> {
   }
 
   Widget _buildRoleTab(String title, bool selected, VoidCallback onTap) {
-    final primaryYellow = AppColors.primaryColor;
-    final black50 = Colors.black.withOpacity(0.5);
-
-    final color = selected ? primaryYellow : black50;
+    final color =
+        selected ? AppColors.yellowFFD673 : AppColors.black50opacity80000000;
     final fontWeight = selected ? FontWeight.bold : FontWeight.normal;
 
     return GestureDetector(
@@ -293,7 +263,7 @@ class AuthScreenState extends State<AuthScreen> {
             Container(
               height: selected ? 4.h : 1.h,
               decoration: BoxDecoration(
-                color: selected ? primaryYellow : black50,
+                color: color,
                 borderRadius: BorderRadius.circular(3),
               ),
             ),
@@ -307,7 +277,8 @@ class AuthScreenState extends State<AuthScreen> {
     required TextEditingController controller,
     required String labelText,
     required String hintText,
-    required IconData suffixIcon,
+    IconData? suffixIcon,
+    SvgGenImage? suffixIconSvg,
     required bool obscureText,
     VoidCallback? onSuffixIconTap,
   }) {
@@ -318,26 +289,25 @@ class AuthScreenState extends State<AuthScreen> {
         labelText: labelText,
         floatingLabelBehavior:
             FloatingLabelBehavior.always, // Keeps label inside the border
-        labelStyle: GoogleFonts.roboto(
-          fontWeight: FontWeight.bold,
-          fontSize: 14.sp,
-          color: Colors.black,
-        ),
+
+        labelStyle: AppTextStyles.roboto14w500Black,
         hintText: hintText,
-        hintStyle: GoogleFonts.roboto(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-          color: Colors.black.withOpacity(
-            0.5,
-          ),
-        ),
+
+        hintStyle: AppTextStyles.roboto14w400Black50opacity,
         suffixIcon: GestureDetector(
           onTap: onSuffixIconTap,
-          child: Icon(
-            suffixIcon,
-            color: Colors.black.withOpacity(0.5),
-            size: 17.h,
-          ),
+          child: suffixIconSvg == null
+              ? Icon(
+                  suffixIcon,
+                  color: AppColors.black50opacity80000000,
+                  size: 17.h,
+                )
+              : suffixIconSvg.svg(
+                  color: AppColors.black50opacity80000000,
+                  height: 17.h,
+                  width: 17.h,
+                  fit: BoxFit.scaleDown,
+                ),
         ),
         filled: true,
         fillColor: Colors.white,
@@ -346,16 +316,17 @@ class AuthScreenState extends State<AuthScreen> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.dg),
           borderSide:
-              BorderSide(color: Colors.black.withOpacity(0.3), width: 1.5.w),
+              BorderSide(color: AppColors.black30opacity4D000000, width: 1.5.w),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide:
-              BorderSide(color: Colors.black.withOpacity(0.3), width: 1.5.w),
+              BorderSide(color: AppColors.black30opacity4D000000, width: 1.5.w),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.dg),
-          borderSide: BorderSide(color: Colors.grey.shade600, width: 1.8.w),
+          borderSide:
+              BorderSide(color: AppColors.darkGrayText3F3F3F, width: 1.8.w),
         ),
       ),
     );

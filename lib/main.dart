@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
             title: 'Groc Shopy',
             theme: ThemeData(
               // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              scaffoldBackgroundColor: AppColors.backgroundColor,
+              scaffoldBackgroundColor: AppColors.backgroundF5F0EC,
               useMaterial3: true,
             ),
             routeInformationParser: AppRouter.route.routeInformationParser,

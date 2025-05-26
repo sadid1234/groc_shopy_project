@@ -22,12 +22,14 @@ class RoutePath {
 
   //==================================== Worker screens =====================================
 
+  static const String main = 'main';
   static const String home = 'home';
   static const String workerHome = 'workerHome';
   static const String profile = 'Profile';
   static const String scan = 'scan';
   static const String scannedItemsScreen = 'scannedItemsScreen';
   static const String transactionHistory = 'transactionHistory';
+  static const String report = 'report';
 
   //==================================== Client screens =====================================
   static const String clientHome = 'clientHome';

@@ -67,7 +67,7 @@ class _ScanScreenState extends State<ScanScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: () => Navigator.pop(context),
+                    onTap: () => context.pop(),
                     child: Icon(Icons.arrow_back_ios, color: Colors.grey),
                   ),
                   Text(

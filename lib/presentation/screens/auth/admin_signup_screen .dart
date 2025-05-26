@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
@@ -36,12 +37,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final primaryYellow = AppColors.primaryColor;
-    final bgColor = AppColors.backgroundColor;
-    final black50 = Colors.black.withOpacity(0.5);
-
     return Scaffold(
-      backgroundColor: bgColor,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -59,18 +55,14 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   Gap(16.h),
                   Text(
                     AppStrings.adminSignUp,
-                    style: GoogleFonts.inter(
-                      color: AppColors.primaryColor,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: AppTextStyles.kohSantepheap18w700Yellow,
                   ),
                   Gap(24.h),
                   // Tab bar for Employee/Admin
                   Container(
                     height: 1.h,
                     decoration: BoxDecoration(
-                      color: black50.withOpacity(0.1),
+                      color: AppColors.black50opacity80000000,
                       borderRadius: BorderRadius.circular(3),
                     ),
                   ),
@@ -119,14 +111,11 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                             rememberMe = val ?? false;
                           });
                         },
-                        activeColor: primaryYellow,
+                        activeColor: AppColors.yellowFFD673,
                       ),
                       Text(
                         AppStrings.rememberMe,
-                        style: GoogleFonts.roboto(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: AppTextStyles.roboto14w400Black,
                       ),
                     ],
                   ),
@@ -139,7 +128,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     height: 48,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: primaryYellow,
+                        backgroundColor: AppColors.yellowFFD673,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -150,11 +139,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                       },
                       child: Text(
                         AppStrings.signUp,
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16.sp,
-                        ),
+                        style: AppTextStyles.inter16w700White,
                       ),
                     ),
                   ),
@@ -188,11 +173,8 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                                       2), // Adds space between text and underline
                               child: Text(
                                 AppStrings.signIn, // Your text
-                                style: GoogleFonts.roboto(
-                                  color: primaryYellow,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14.sp,
-                                ),
+
+                                style: AppTextStyles.roboto14w500Yellow,
                               ),
                             ),
                             // The underline with custom gap
@@ -203,7 +185,8 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                               right: 0,
                               child: Container(
                                 height: 2, // Thickness of the underline
-                                color: primaryYellow, // Color of the underline
+                                color: AppColors
+                                    .yellowFFD673, // Color of the underline
                               ),
                             ),
                           ],
@@ -216,11 +199,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
 
                   Text(
                     AppStrings.or,
-                    style: GoogleFonts.roboto(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                    ),
+                    style: AppTextStyles.roboto14w500Black,
                   ),
 
                   Gap(12.h),
@@ -254,10 +233,8 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
   }
 
   Widget _buildRoleTab(String title, bool selected, VoidCallback onTap) {
-    final primaryYellow = AppColors.primaryColor;
-    final black50 = Colors.black.withOpacity(0.5);
-
-    final color = selected ? primaryYellow : black50;
+    final color =
+        selected ? AppColors.yellowFFD673 : AppColors.black50opacity80000000;
     final fontWeight = selected ? FontWeight.bold : FontWeight.normal;
 
     return GestureDetector(
@@ -280,7 +257,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
             Container(
               height: selected ? 4.h : 1.h,
               decoration: BoxDecoration(
-                color: selected ? primaryYellow : black50,
+                color: color,
                 borderRadius: BorderRadius.circular(3),
               ),
             ),
@@ -306,29 +283,21 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
         labelText: labelText,
         floatingLabelBehavior:
             FloatingLabelBehavior.always, // Keeps label inside the border
-        labelStyle: GoogleFonts.roboto(
-          fontWeight: FontWeight.bold,
-          fontSize: 14.sp,
-          color: Colors.black,
-        ),
+
+        labelStyle: AppTextStyles.roboto14w500Black,
         hintText: hintText,
-        hintStyle: GoogleFonts.roboto(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-          color: Colors.black.withOpacity(
-            0.5,
-          ),
-        ),
+
+        hintStyle: AppTextStyles.roboto14w400Black50opacity,
         suffixIcon: GestureDetector(
           onTap: onSuffixIconTap,
           child: suffixIconSvg == null
               ? Icon(
                   suffixIcon,
-                  color: Colors.black.withOpacity(0.5),
+                  color: AppColors.black50opacity80000000,
                   size: 17.h,
                 )
               : suffixIconSvg.svg(
-                  color: Colors.black.withOpacity(0.5),
+                  color: AppColors.black50opacity80000000,
                   height: 17.h,
                   width: 17.h,
                   fit: BoxFit.scaleDown,
@@ -341,23 +310,26 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.dg),
           borderSide:
-              BorderSide(color: Colors.black.withOpacity(0.3), width: 1.5.w),
+              BorderSide(color: AppColors.black30opacity4D000000, width: 1.5.w),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide:
-              BorderSide(color: Colors.black.withOpacity(0.3), width: 1.5.w),
+              BorderSide(color: AppColors.black30opacity4D000000, width: 1.5.w),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.dg),
-          borderSide: BorderSide(color: Colors.grey.shade600, width: 1.8.w),
+          borderSide:
+              BorderSide(color: AppColors.darkGrayText3F3F3F, width: 1.8.w),
         ),
       ),
     );
   }
 
-  Widget _buildSocialIcon(
-      {required String iconPath, required VoidCallback onTap}) {
+  Widget _buildSocialIcon({
+    required String iconPath,
+    required VoidCallback onTap,
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: CircleAvatar(

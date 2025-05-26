@@ -173,7 +173,6 @@ class _ProfileScreenState extends State<ProfileScreen>
     // example profile
 
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavBar(),
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         backgroundColor: AppColors.backgroundColor,

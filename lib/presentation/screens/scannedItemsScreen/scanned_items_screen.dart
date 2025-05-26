@@ -46,7 +46,6 @@ class ScannedItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavBar(),
       backgroundColor:
           Color(0xFFFAF7F1), // light background like your screenshot
       appBar: AppBar(

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
@@ -36,19 +37,13 @@ class SplashScreen extends StatelessWidget {
             Center(
               child: Text(
                 AppStrings.appName,
-                style: GoogleFonts.robotoSerif(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: AppTextStyles.robotoSerif24w600Black,
               ),
             ),
             Gap(97.h),
             Text(
               AppStrings.appTagLine,
-              style: GoogleFonts.kohSantepheap(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff404040)),
+              style: AppTextStyles.kohSantepheap24w400,
             ),
             Gap(92.h),
             SliderButton(
@@ -61,9 +56,9 @@ class SplashScreen extends StatelessWidget {
               completedIconPath: Assets.icons.forwardBlack.path,
               height: 60,
               width: double.infinity, // Works correctly now
-              activeColor: AppColors.primaryColor,
-              inactiveColor: Colors.white,
-              buttonColor: Colors.white,
+              activeColor: AppColors.yellowFFD673,
+              inactiveColor: AppColors.whiteFFFFFF,
+              buttonColor: AppColors.whiteFFFFFF,
               resetAfterCompletion: true,
               padding: 4, // Optional auto-reset
             ),
