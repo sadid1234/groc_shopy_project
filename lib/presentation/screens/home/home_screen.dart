@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
+import '../../widgets/custom_navbar/custom_navbar.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -533,9 +534,12 @@ class HomeScreen extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: [
-                    purchaseHistoryItem('Milk', 'Dairy', '\$2.50'),
-                    purchaseHistoryItem('Bread', 'Bakery', '\$1.80'),
-                    purchaseHistoryItem('Apples', 'Fruits', '\$3.00'),
+                    purchaseHistoryItem(
+                        'Milk', 'Dairy', '\$2.50', Assets.icons.milk.path),
+                    purchaseHistoryItem(
+                        'Bread', 'Bakery', '\$1.80', Assets.icons.bread.path),
+                    purchaseHistoryItem(
+                        'Apples', 'Fruits', '\$3.00', Assets.icons.apples.path),
                   ],
                 ),
               ],
@@ -638,89 +642,51 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget purchaseHistoryItem(String item, String category, String price) {
-    IconData icon;
-    switch (category.toLowerCase()) {
-      case 'dairy':
-        icon = Icons.local_drink;
-        break;
-      case 'bakery':
-        icon = Icons.bakery_dining;
-        break;
-      case 'fruits':
-        icon = Icons.apple;
-        break;
-      default:
-        icon = Icons.shopping_bag;
-    }
-
-    return ListTile(
-      leading: Image.asset(
-        Assets.icons.milk.path,
-        height: 24.h,
-        width: 24.w,
-      ),
-      title: Text(item),
-      subtitle: Text(category),
-      trailing: Text(price),
-      dense: true,
-      contentPadding: EdgeInsets.zero,
-    );
-  }
-}
-
-class CustomBottomNavBar extends StatefulWidget {
-  @override
-  _CustomBottomNavBarState createState() => _CustomBottomNavBarState();
-}
-
-class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  int selectedIndex = 0;
-  final List<String> icons = [
-    Assets.icons.home.path,
-    Assets.icons.scan.path,
-    Assets.icons.transaction.path,
-    Assets.icons.profile.path,
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 70, // Replace 62.h if you use ScreenUtil
-      decoration: BoxDecoration(
-        color: Color(0xFF282F291A).withOpacity(0.1),
-        borderRadius: BorderRadius.circular(50),
-      ),
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: List.generate(icons.length, (index) {
-          bool isSelected = selectedIndex == index;
-
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            child: AnimatedContainer(
-              padding: EdgeInsets.all(0),
-              duration: Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-              width: isSelected ? 150 : 65, // expanded width for selected
-              height: 65,
-              decoration: BoxDecoration(
-                color: isSelected ? Color(0xFFFFD54F) : Color(0xFFC4C4C4),
-                borderRadius: BorderRadius.circular(isSelected ? 25 : 50),
-              ),
-              alignment: Alignment.center,
-              child: SvgPicture.asset(
-                icons[index],
-              ),
+  Widget purchaseHistoryItem(
+    String item,
+    String category,
+    String price,
+    String imageUrl,
+  ) {
+    return Column(
+      children: [
+        ListTile(
+          leading: Image.asset(
+            imageUrl,
+            height: 24.h,
+            width: 24.w,
+          ),
+          title: Text(
+            item,
+            style: GoogleFonts.roboto(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
             ),
-          );
-        }),
-      ),
+          ),
+          subtitle: Text(category,
+              style: GoogleFonts.roboto(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w400,
+                color: Colors.black.withOpacity(0.5),
+              )),
+          trailing: Text(
+            price,
+            style: GoogleFonts.roboto(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w500,
+              color: Colors.black,
+            ),
+          ),
+          dense: true,
+          contentPadding: EdgeInsets.zero,
+        ),
+        Divider(
+          color: Colors.black.withOpacity(0.1),
+          thickness: 1,
+          height: 1,
+        ),
+      ],
     );
   }
 }

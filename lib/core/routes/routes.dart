@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:go_router/go_router.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
+import 'package:groc_shopy/presentation/screens/profile/profile_screen.dart';
 import 'package:groc_shopy/presentation/screens/auth/admin_signup_screen%20.dart';
 import 'package:groc_shopy/presentation/screens/auth/auth_screen.dart';
 import 'package:groc_shopy/presentation/screens/auth/forgot_password_screen.dart';
@@ -8,7 +11,10 @@ import 'package:groc_shopy/presentation/screens/auth/set_new_password_screen.dar
 import 'package:groc_shopy/presentation/screens/auth/update_password_success_screen.dart';
 import 'package:groc_shopy/presentation/screens/auth/verify_code_screen.dart';
 import 'package:groc_shopy/presentation/screens/home/home_screen.dart';
+import 'package:groc_shopy/presentation/screens/scan/scan_screen.dart';
+import 'package:groc_shopy/presentation/screens/transaction_history/transaction_history_screen.dart';
 
+import '../../presentation/screens/scannedItemsScreen/scanned_items_screen.dart';
 import '../../presentation/screens/splash_screen/splash_screen.dart';
 import '../../presentation/widgets/error_screen/error_screen.dart';
 import 'route_path.dart';
@@ -17,6 +23,9 @@ class AppRouter {
   static final GoRouter initRoute = GoRouter(
       // initialLocation: RoutePath.splashScreen.addBasePath,
       initialLocation: RoutePath.home.addBasePath,
+      // initialLocation: RoutePath.transactionHistory.addBasePath,
+      // initialLocation: RoutePath.profile.addBasePath,
+      // initialLocation: RoutePath.scan.addBasePath,
       // navigatorKey: Get.key,
       debugLogDiagnostics: true,
       routes: [
@@ -89,6 +98,13 @@ class AppRouter {
           builder: (context, state) => UpdatePasswordSuccessScreen(),
         ),
 
+        ///======================= Transaction History =======================
+        GoRoute(
+          name: RoutePath.transactionHistory,
+          path: RoutePath.transactionHistory.addBasePath,
+          builder: (context, state) => TransactionHistoryScreen(),
+        ),
+
         ///======================= LogIn Route =======================
 
         ///======================= Forgot Pass Route =======================
@@ -108,7 +124,27 @@ class AppRouter {
           builder: (context, state) => HomeScreen(),
         ),
 
-        /// ==================== Worker Profile ====================
+        /// ====================  Profile ====================
+        GoRoute(
+          name: RoutePath.profile,
+          path: RoutePath.profile.addBasePath,
+          builder: (context, state) => ProfileScreen(),
+        ),
+
+        /// ====================  Scan ====================
+        GoRoute(
+          name: RoutePath.scan,
+          path: RoutePath.scan.addBasePath,
+          builder: (context, state) => ScanScreen(),
+        ),
+        GoRoute(
+          name: RoutePath.scannedItemsScreen,
+          path: RoutePath.scannedItemsScreen.addBasePath,
+          builder: (context, state) {
+            final image = state.extra as File?;
+            return ScannedItemsScreen(image: image);
+          },
+        ),
 
         /// ==================== Order/Worked History ====================
 

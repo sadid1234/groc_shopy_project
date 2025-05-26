@@ -101,6 +101,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/milk.png
   AssetGenImage get milk => const AssetGenImage('assets/icons/milk.png');
 
+  /// File path: assets/icons/packaging.svg
+  SvgGenImage get packaging => const SvgGenImage('assets/icons/packaging.svg');
+
   /// File path: assets/icons/password.svg
   SvgGenImage get password => const SvgGenImage('assets/icons/password.svg');
 
@@ -161,6 +164,7 @@ class $AssetsIconsGen {
     mastercard,
     meat,
     milk,
+    packaging,
     password,
     plates,
     plus,
@@ -183,11 +187,24 @@ class $AssetsImagesGen {
   /// File path: assets/images/dairy.png
   AssetGenImage get dairy => const AssetGenImage('assets/images/dairy.png');
 
+  /// File path: assets/images/invoice.png
+  AssetGenImage get invoice => const AssetGenImage('assets/images/invoice.png');
+
   /// File path: assets/images/meat.png
   AssetGenImage get meat => const AssetGenImage('assets/images/meat.png');
 
+  /// File path: assets/images/profile_image.png
+  AssetGenImage get profileImage =>
+      const AssetGenImage('assets/images/profile_image.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [brocoli, dairy, meat];
+  List<AssetGenImage> get values => [
+    brocoli,
+    dairy,
+    invoice,
+    meat,
+    profileImage,
+  ];
 }
 
 class Assets {

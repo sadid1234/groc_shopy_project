@@ -3,11 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:groc_shopy/core/custom_assets/assets.gen.dart';
-
+import 'package:camera/camera.dart';
 import 'core/routes/routes.dart';
+import 'utils/app_colors/app_colors.dart';
 
-void main() {
-  runApp(const MyApp());
+late final List<CameraDescription> cameras;
+
+Future<void> main() async {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,9 +24,10 @@ class MyApp extends StatelessWidget {
         builder: (_, context) {
           return GetMaterialApp.router(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Groc Shopy',
             theme: ThemeData(
               // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              scaffoldBackgroundColor: AppColors.backgroundColor,
               useMaterial3: true,
             ),
             routeInformationParser: AppRouter.route.routeInformationParser,

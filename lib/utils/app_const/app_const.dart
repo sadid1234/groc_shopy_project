@@ -1,6 +1,5 @@
 class AppConstants {
   /// <====================== All Response Message Static==============================>
-
   static String successfull = "Request Successfull";
   static String error = "Oops, something went wrong";
   static String profileID = "profileID";
