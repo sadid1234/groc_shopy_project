@@ -34,6 +34,7 @@ class AppStrings {
   static const String trackTotalSpent = 'Track total spent';
   static const String totalSpent = 'Total Spent';
   static const String budgetLimit = 'Budget Limit';
+  static const String groceryItems = 'Grocery Items';
   static const String underBudget = 'Under budget';
   static const String recentPurchases = 'Recent Purchases';
   static const String createANewPassword =
@@ -103,7 +104,7 @@ class AppStrings {
 
   ///====================== Scanner ========================
   static const String scanner = "Scanner";
-  static const String groceryItems = "Grocery Items";
+
   static const String recentScans = "Recent Scans";
   static const String edit = "Edit";
   static const String save = "Save";

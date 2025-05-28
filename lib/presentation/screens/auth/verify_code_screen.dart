@@ -77,7 +77,7 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -90,7 +90,7 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                   Assets.icons.arrowBackGrey.path,
                 ),
               ),
-              const SizedBox(height: 16),
+              Gap(16.h),
               Text(
                 AppStrings.checkYourEmail,
                 style: AppStyle.kohSantepheap18w700C1E1E1E,
@@ -127,7 +127,8 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+
+              Gap(24.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(codeLength, (index) {
@@ -177,9 +178,9 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                       enabledBorderColor: controllers[index].text.isEmpty
                           ? AppColors.borderE1E1E1
                           : AppColors.yellowFFD673,
-                      enabledBorderWidth: 3,
+                      enabledBorderWidth: 3.w,
                       focusedBorderColor: AppColors.yellowFFD673,
-                      focusedBorderWidth: 3,
+                      focusedBorderWidth: 3.w,
                       showCounter: false,
                       filled: false, // no fill color here, keep transparent
                       onChanged: (value) => _onCodeChanged(index, value),
@@ -187,7 +188,8 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                   );
                 }),
               ),
-              const SizedBox(height: 24),
+
+              Gap(24.h),
               SizedBox(
                 width: double.infinity,
                 height: 48,
@@ -210,7 +212,8 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+
+              Gap(16.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -225,9 +228,9 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                       children: [
                         // The text itself
                         Padding(
-                          padding: const EdgeInsets.only(
+                          padding: EdgeInsets.only(
                               bottom:
-                                  2), // Adds space between text and underline
+                                  2.h), // Adds space between text and underline
                           child: Text(
                             AppStrings.resendEmail, // Your text
                             style: AppStyle.inter14w600CFFD673U,
@@ -240,7 +243,7 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                           left: 0,
                           right: 0,
                           child: Container(
-                            height: 2, // Thickness of the underline
+                            height: 2.h, // Thickness of the underline
                             color: AppColors
                                 .yellowFFD673, // Color of the underline
                           ),

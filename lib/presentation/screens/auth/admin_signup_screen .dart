@@ -113,7 +113,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     enabledBorderColor: AppColors.black30opacity4D000000,
                     focusedBorderColor: AppColors.darkGrayText3F3F3F,
                     fillColor: Colors.white,
-                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
+                    contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),
 
                   Gap(35.h),
@@ -129,9 +129,8 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     enabledBorderColor: AppColors.black30opacity4D000000,
                     focusedBorderColor: AppColors.darkGrayText3F3F3F,
                     fillColor: Colors.white,
-                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
+                    contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),
-
                   Gap(35.h),
 
                   CustomTextFormField(
@@ -152,7 +151,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     enabledBorderColor: AppColors.black30opacity4D000000,
                     focusedBorderColor: AppColors.darkGrayText3F3F3F,
                     fillColor: Colors.white,
-                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
+                    contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),
 
                   // Remember Me checkbox
@@ -179,7 +178,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   // Sign in button
                   SizedBox(
                     width: double.infinity,
-                    height: 48,
+                    height: 48.h,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.yellowFFD673,
@@ -218,9 +217,9 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                           children: [
                             // The text itself
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  bottom:
-                                      2), // Adds space between text and underline
+                              padding: EdgeInsets.only(
+                                  bottom: 2
+                                      .h), // Adds space between text and underline
                               child: Text(
                                 AppStrings.signIn, // Your text
 
@@ -234,7 +233,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                               left: 0,
                               right: 0,
                               child: Container(
-                                height: 2, // Thickness of the underline
+                                height: 2.h, // Thickness of the underline
                                 color: AppColors
                                     .yellowFFD673, // Color of the underline
                               ),

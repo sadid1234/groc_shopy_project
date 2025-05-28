@@ -110,7 +110,7 @@ class AuthScreenState extends State<AuthScreen> {
                     enabledBorderColor: AppColors.black30opacity4D000000,
                     focusedBorderColor: AppColors.darkGrayText3F3F3F,
                     fillColor: Colors.white,
-                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
+                    contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),
 
                   Gap(35.h),
@@ -133,7 +133,7 @@ class AuthScreenState extends State<AuthScreen> {
                     enabledBorderColor: AppColors.black30opacity4D000000,
                     focusedBorderColor: AppColors.darkGrayText3F3F3F,
                     fillColor: Colors.white,
-                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
+                    contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),
 
                   Gap(6.73.h),
@@ -171,7 +171,7 @@ class AuthScreenState extends State<AuthScreen> {
                   // Sign in button
                   SizedBox(
                     width: double.infinity,
-                    height: 48,
+                    height: 48.h,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.yellowFFD673,
@@ -209,9 +209,9 @@ class AuthScreenState extends State<AuthScreen> {
                           children: [
                             // The text itself
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  bottom:
-                                      2), // Adds space between text and underline
+                              padding: EdgeInsets.only(
+                                  bottom: 2
+                                      .h), // Adds space between text and underline
                               child: Text(
                                 AppStrings.signUp, // Your text
                                 style: AppStyle.roboto14w500CFFD673,
@@ -224,7 +224,7 @@ class AuthScreenState extends State<AuthScreen> {
                               left: 0,
                               right: 0,
                               child: Container(
-                                height: 2, // Thickness of the underline
+                                height: 2.h, // Thickness of the underline
                                 color: AppColors
                                     .yellowFFD673, // Color of the underline
                               ),
@@ -280,7 +280,7 @@ class AuthScreenState extends State<AuthScreen> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 8),
+        padding: EdgeInsets.symmetric(vertical: 8.w),
         width: 175.w, // fixed width to align underline and text nicely
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -344,8 +344,8 @@ class AuthScreenState extends State<AuthScreen> {
         ),
         filled: true,
         fillColor: Colors.white,
-        contentPadding:
-            EdgeInsets.fromLTRB(16, 20, 16, 14), // Adjusted padding for label
+        contentPadding: EdgeInsets.fromLTRB(
+            16.w, 20.h, 16.w, 14.h), // Adjusted padding for label
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.dg),
           borderSide:
@@ -357,7 +357,7 @@ class AuthScreenState extends State<AuthScreen> {
               BorderSide(color: AppColors.black30opacity4D000000, width: 1.5.w),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.dg),
+          borderRadius: BorderRadius.circular(12),
           borderSide:
               BorderSide(color: AppColors.darkGrayText3F3F3F, width: 1.8.w),
         ),

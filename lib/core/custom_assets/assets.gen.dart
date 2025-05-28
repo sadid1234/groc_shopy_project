@@ -190,6 +190,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/invoice.png
   AssetGenImage get invoice => const AssetGenImage('assets/images/invoice.png');
 
+  /// File path: assets/images/invoice_placeholder.png
+  AssetGenImage get invoicePlaceholder =>
+      const AssetGenImage('assets/images/invoice_placeholder.png');
+
   /// File path: assets/images/meat.png
   AssetGenImage get meat => const AssetGenImage('assets/images/meat.png');
 
@@ -202,6 +206,7 @@ class $AssetsImagesGen {
     brocoli,
     dairy,
     invoice,
+    invoicePlaceholder,
     meat,
     profileImage,
   ];

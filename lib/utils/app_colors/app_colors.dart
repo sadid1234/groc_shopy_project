@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groc_shopy/presentation/widgets/subscription_modal/subscription_modal.dart';
 
 class AppColors {
   static const black000000 = Color(0xFF000000);
@@ -18,5 +19,6 @@ class AppColors {
   static const whiteFFFFFF = Color(0xFFFFFFFF);
   static const borderE1E1E1 = Color(0xFFE1E1E1);
   static const backgroundColor = Color(0xFFF5F0EC);
+  static const subscriptionModalBackground = Color(0xFFF2F3F6);
   // Add other colors as needed
 }

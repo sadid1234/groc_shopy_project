@@ -16,11 +16,10 @@ class PasswordResetConfirmScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F0E7), // light cream background
-
+      // light cream background
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -45,7 +44,7 @@ class PasswordResetConfirmScreen extends StatelessWidget {
               Gap(32.h),
               SizedBox(
                 width: double.infinity,
-                height: 48,
+                height: 48.h,
                 child: ElevatedButton(
                   onPressed: () {
                     context.push(RoutePath.resetPass.addBasePath);

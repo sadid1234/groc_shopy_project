@@ -17,7 +17,7 @@ class UpdatePasswordSuccessScreen extends StatelessWidget {
       // Light beige background
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -28,13 +28,13 @@ class UpdatePasswordSuccessScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Color(0xFFF1F5FF),
                   shape: BoxShape.circle,
-                  border: Border.all(color: Color(0xFFFDD472), width: 2),
+                  border: Border.all(color: Color(0xFFFDD472), width: 2.w),
                 ),
                 child: Center(
                   child: Icon(
                     Icons.check,
                     color: Color(0xFFFDD472),
-                    size: 40,
+                    size: 40.w,
                   ),
                 ),
               ),

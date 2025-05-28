@@ -23,6 +23,8 @@ class RoutePath {
   //==================================== Worker screens =====================================
 
   static const String main = 'main';
+  static const String subscription = 'subscription';
+
   static const String home = 'home';
   static const String workerHome = 'workerHome';
   static const String profile = 'Profile';

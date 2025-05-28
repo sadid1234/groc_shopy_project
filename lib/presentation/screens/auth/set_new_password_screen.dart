@@ -55,7 +55,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
       // light cream background
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -171,7 +171,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
                 style: AppStyle.roboto16w500C545454,
                 hintStyle: AppStyle.roboto14w500CB3B3B3,
                 contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                 enabledBorderColor: AppColors.borderE1E1E1,
                 focusedBorderColor: AppColors.borderE1E1E1,
                 enabledBorderWidth: 1.5.w,
@@ -199,7 +199,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
                 style: AppStyle.roboto16w500C545454,
                 hintStyle: AppStyle.roboto14w500CB3B3B3,
                 contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                 enabledBorderColor: AppColors.borderE1E1E1,
                 focusedBorderColor: AppColors.borderE1E1E1,
                 enabledBorderWidth: 1.5.w,
@@ -207,11 +207,11 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
                 borderRadius: BorderRadius.circular(12.dg),
               ),
 
-              const SizedBox(height: 30),
+              Gap(30.h),
               // Update Password Button
               SizedBox(
                 width: double.infinity,
-                height: 48,
+                height: 48.h,
                 child: ElevatedButton(
                   onPressed: () {
                     context.push(RoutePath.resetPasswordSuccess.addBasePath);

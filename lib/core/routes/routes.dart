@@ -14,6 +14,7 @@ import 'package:groc_shopy/presentation/screens/auth/verify_code_screen.dart';
 import 'package:groc_shopy/presentation/screens/home/home_screen.dart';
 import 'package:groc_shopy/presentation/screens/scan/scan_screen.dart';
 import 'package:groc_shopy/presentation/screens/transaction_history/transaction_history_screen.dart';
+import 'package:groc_shopy/presentation/widgets/subscription_modal/subscription_modal.dart';
 
 import '../../presentation/screens/report/report_screen.dart';
 import '../../presentation/screens/scannedItemsScreen/scanned_items_screen.dart';
@@ -24,6 +25,7 @@ import 'route_path.dart';
 class AppRouter {
   static final GoRouter initRoute = GoRouter(
       initialLocation: RoutePath.splashScreen.addBasePath,
+      // initialLocation: RoutePath.subscription.addBasePath,
       // initialLocation: RoutePath.home.addBasePath,
       // initialLocation: RoutePath.main.addBasePath,
       // initialLocation: RoutePath.report.addBasePath,
@@ -34,7 +36,10 @@ class AppRouter {
       debugLogDiagnostics: true,
       routes: [
         ///======================= splash Route =======================
-
+        GoRoute(
+            name: RoutePath.subscription,
+            path: RoutePath.subscription.addBasePath,
+            builder: (context, state) => const SubscriptionModal()),
         GoRoute(
           name: RoutePath.splashScreen,
           path: RoutePath.splashScreen.addBasePath,

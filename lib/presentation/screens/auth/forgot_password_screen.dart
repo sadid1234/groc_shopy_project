@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
@@ -112,7 +113,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 // fillColor: AppColors.lightGreyTextB3B3B3,
                 fillColor: Colors.transparent,
                 contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                    EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
                 enabledBorderColor: AppColors.borderE1E1E1,
                 focusedBorderColor: AppColors.borderE1E1E1,
                 enabledBorderWidth: 1.5.w,
@@ -122,10 +123,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 obscureText: false,
               ),
 
-              const SizedBox(height: 30),
+              Gap(30.h),
               SizedBox(
                 width: double.infinity,
-                height: 48,
+                height: 48.h,
                 child: ElevatedButton(
                   onPressed: isButtonEnabled
                       ? () {

@@ -86,23 +86,19 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
     Widget? suffixIconWidget;
     if (widget.suffixIconSvgAsset != null) {
-      suffixIconWidget = GestureDetector(
-        onTap: widget.onSuffixIconTap,
+      suffixIconWidget = Container(
+        padding: EdgeInsets.all(15),
         child: SvgPicture.asset(
           widget.suffixIconSvgAsset!,
-          height: 17,
-          width: 17,
           color: Colors.black.withOpacity(0.5),
+          fit: BoxFit.cover,
         ),
       );
     } else if (widget.suffixIcon != null) {
-      suffixIconWidget = GestureDetector(
-        onTap: _toggleObscureText,
-        child: Icon(
-          widget.suffixIcon,
-          color: Colors.black.withOpacity(0.5),
-          size: 17,
-        ),
+      suffixIconWidget = Icon(
+        widget.suffixIcon,
+        color: Colors.black.withOpacity(0.5),
+        size: 17,
       );
     }
 
@@ -125,6 +121,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         hintText: widget.hintText,
         hintStyle: widget.hintStyle,
         suffixIcon: suffixIconWidget,
+        // suffixIconConstraints:
+        //     const BoxConstraints(minWidth: 0, minHeight: 0, maxHeight: 60),
         filled: widget.filled,
         fillColor: widget.fillColor,
         contentPadding: widget.contentPadding,

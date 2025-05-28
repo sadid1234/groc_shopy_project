@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/core/routes/route_path.dart';
@@ -11,15 +12,35 @@ import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../widgets/custom_navbar/custom_navbar.dart';
+import '../../widgets/subscription_modal/subscription_modal.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Show the modal after the first frame is rendered
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      showDialog(
+        context: context,
+        barrierDismissible:
+            false, // Optional: prevent closing by tapping outside
+        builder: (context) => const SubscriptionModal(),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF9F3E8),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                           backgroundImage: NetworkImage(
                               'https://randomuser.me/api/portraits/men/32.jpg'),
                         ),
-                        SizedBox(width: 12),
+                        Gap(12.w),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -58,16 +79,15 @@ class HomeScreen extends StatelessWidget {
                           width: 24.w,
                           decoration: BoxDecoration(
                             color: Color(0xFFD9D9D9),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.r),
                           ),
                           child: Image.asset(
                             Assets.icons.shop.path,
-                            // color: Colors.black,
-                            height: 24,
-                            width: 24,
+                            height: 24.h,
+                            width: 24.w,
                           ),
                         ),
-                        SizedBox(width: 6),
+                        Gap(6.w),
                         GestureDetector(
                           onTap: () async {
                             final RenderBox overlay = Overlay.of(context)
@@ -78,15 +98,13 @@ class HomeScreen extends StatelessWidget {
                               context: context,
                               position: RelativeRect.fromRect(
                                 Rect.fromPoints(
-                                  Offset(overlay.size.width - 56,
-                                      80), // position near icon, adjust as needed
-                                  Offset(overlay.size.width - 16, 120),
+                                  Offset(overlay.size.width - 56.w, 80.h),
+                                  Offset(overlay.size.width - 16.w, 120.h),
                                 ),
                                 Offset.zero & overlay.size,
                               ),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                    16), // Rounded corners here
+                                borderRadius: BorderRadius.circular(16.r),
                               ),
                               items: [
                                 PopupMenuItem(
@@ -110,12 +128,12 @@ class HomeScreen extends StatelessWidget {
                             width: 24.w,
                             decoration: BoxDecoration(
                               color: Color(0xFFD9D9D9),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             child: Image.asset(
                               Assets.icons.language.path,
-                              height: 24,
-                              width: 24,
+                              height: 24.h,
+                              width: 24.w,
                             ),
                           ),
                         ),
@@ -123,7 +141,7 @@ class HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(height: 24),
+                Gap(24.h),
 
                 // Monthly Report Card
                 InkWell(
@@ -131,10 +149,11 @@ class HomeScreen extends StatelessWidget {
                     context.push(RoutePath.report.addBasePath);
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
                     decoration: BoxDecoration(
                       color: Color(0xFFF0F0F0),
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.r),
                       boxShadow: [
                         BoxShadow(
                           color: Color(0x40FFD673), // 25% opacity of #FFD673
@@ -154,7 +173,7 @@ class HomeScreen extends StatelessWidget {
                               '25 April, 2025',
                               style: AppStyle.roboto12w400C5A5A5A,
                             ),
-                            SizedBox(height: 4),
+                            Gap(4.h),
                             Text(
                               AppStrings.monthlyReport,
                               style: AppStyle.roboto16w400C000000,
@@ -163,20 +182,18 @@ class HomeScreen extends StatelessWidget {
                         ),
                         CircleAvatar(
                           radius: 25.r,
-                          backgroundColor: Color(0xFF0000000)
-                              .withOpacity(0.05), // grey background
+                          backgroundColor: Color(0xFF0000000).withOpacity(0.05),
                           child: Image.asset(
                             Assets.icons.graph.path,
                             height: 48.h,
                             width: 48.w,
-                            // color: Colors.black,
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 24),
+                Gap(24.h),
 
                 // Monthly Grocery Spending Section
                 Row(
@@ -204,10 +221,10 @@ class HomeScreen extends StatelessWidget {
                         height: 36.h,
                         width: 106.w,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
+                          borderRadius: BorderRadius.circular(4.r),
                           border: Border.all(
                             color: AppColors.yellowFFD673,
-                          ), // similar to OutlinedButton border
+                          ),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -217,7 +234,7 @@ class HomeScreen extends StatelessWidget {
                               AppStrings.viewBreakdown,
                               style: AppStyle.roboto10w400C000000,
                             ),
-                            SizedBox(width: 4),
+                            Gap(4.w),
                             SvgPicture.asset(
                               Assets.icons.forwardView.path,
                               height: 12.h,
@@ -230,7 +247,7 @@ class HomeScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(height: 8),
+                Gap(8.h),
 
                 SizedBox(
                   height: 189.h,
@@ -239,10 +256,10 @@ class HomeScreen extends StatelessWidget {
                       Expanded(
                         child: Container(
                           padding: EdgeInsets.symmetric(
-                              vertical: 16, horizontal: 12),
+                              vertical: 16.h, horizontal: 12.w),
                           decoration: BoxDecoration(
-                            color: Color(0xFFF9D976), // yellow highlight
-                            borderRadius: BorderRadius.circular(12),
+                            color: Color(0xFFF9D976),
+                            borderRadius: BorderRadius.circular(12.r),
                             border: Border.all(color: Colors.black12),
                           ),
                           child: Column(
@@ -254,26 +271,26 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    radius: 20,
+                                    radius: 20.r,
                                     child: Image.asset(
                                       Assets.icons.sales.path,
                                       color: Colors.black,
-                                      height: 26,
-                                      width: 26,
+                                      height: 26.h,
+                                      width: 26.w,
                                     ),
                                   ),
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    radius: 20,
+                                    radius: 20.r,
                                     child: Image.asset(
                                       Assets.icons.star.path,
-                                      height: 26,
-                                      width: 26,
+                                      height: 26.h,
+                                      width: 26.w,
                                     ),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 8),
+                              Gap(8.h),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -309,12 +326,12 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    radius: 20,
+                                    radius: 20.r,
                                     child: Image.asset(
                                       Assets.icons.plus.path,
                                       color: Colors.black,
-                                      height: 26,
-                                      width: 26,
+                                      height: 26.h,
+                                      width: 26.w,
                                     ),
                                   ),
                                 ],
@@ -323,14 +340,14 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 12),
+                      Gap(12.w),
                       Expanded(
                         child: Container(
                           padding: EdgeInsets.symmetric(
-                              vertical: 16, horizontal: 12),
+                              vertical: 16.h, horizontal: 12.w),
                           decoration: BoxDecoration(
-                            color: Color(0xFFE4DFD7), // yellow highlight
-                            borderRadius: BorderRadius.circular(12),
+                            color: Color(0xFFE4DFD7),
+                            borderRadius: BorderRadius.circular(12.r),
                             border: Border.all(color: Colors.black12),
                           ),
                           child: Column(
@@ -342,26 +359,26 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    radius: 20,
+                                    radius: 20.r,
                                     child: Image.asset(
                                       Assets.icons.coin.path,
                                       color: Colors.black,
-                                      height: 26,
-                                      width: 26,
+                                      height: 26.h,
+                                      width: 26.w,
                                     ),
                                   ),
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    radius: 20,
+                                    radius: 20.r,
                                     child: Image.asset(
                                       Assets.icons.star.path,
-                                      height: 26,
-                                      width: 26,
+                                      height: 26.h,
+                                      width: 26.w,
                                     ),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 8),
+                              Gap(8.h),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -397,12 +414,12 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    radius: 20,
+                                    radius: 20.r,
                                     child: Image.asset(
                                       Assets.icons.plus.path,
                                       color: Colors.black,
-                                      height: 26,
-                                      width: 26,
+                                      height: 26.h,
+                                      width: 26.w,
                                     ),
                                   ),
                                 ],
@@ -414,14 +431,14 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 24),
+                Gap(24.h),
 
                 // Recent Purchases horizontal scroll
                 Text(
                   AppStrings.recentPurchases,
                   style: AppStyle.kohSantepheap18w400C000000,
                 ),
-                SizedBox(height: 12),
+                Gap(12.h),
                 SizedBox(
                   height: 210.h,
                   child: ListView(
@@ -448,7 +465,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 24),
+                Gap(24.h),
 
                 // Purchase History Header
                 Row(
@@ -476,10 +493,10 @@ class HomeScreen extends StatelessWidget {
                         height: 22.h,
                         width: 69.w,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
+                          borderRadius: BorderRadius.circular(4.r),
                           border: Border.all(
                             color: AppColors.yellowFFD673,
-                          ), // similar to OutlinedButton border
+                          ),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -489,7 +506,7 @@ class HomeScreen extends StatelessWidget {
                               AppStrings.viewAll,
                               style: AppStyle.roboto12w400C000000,
                             ),
-                            SizedBox(width: 4),
+                            Gap(4.w),
                             SvgPicture.asset(
                               Assets.icons.forwardView.path,
                               height: 12.h,
@@ -535,10 +552,10 @@ class HomeScreen extends StatelessWidget {
     return Container(
       width: 148.w,
       height: 210.h,
-      margin: EdgeInsets.only(right: 12),
+      margin: EdgeInsets.only(right: 12.w),
       decoration: BoxDecoration(
         color: Colors.transparent,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.r),
         border: Border.all(
           color: Colors.black.withOpacity(0.2),
           width: 1,
@@ -547,7 +564,7 @@ class HomeScreen extends StatelessWidget {
       child: Stack(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(8), // same radius as parent
+            borderRadius: BorderRadius.circular(8.r),
             child: SizedBox(
               height: 150.h,
               child: Image.asset(
@@ -556,22 +573,20 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 6),
+          Gap(6.h),
           Positioned(
             top: 0,
             left: 0,
             child: Container(
               alignment: Alignment.topLeft,
-              // padding: EdgeInsets.all(6),
               child: Container(
                 height: 24.h,
-                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.2),
                   borderRadius: BorderRadius.only(
-                    topLeft:
-                        Radius.circular(8), // match parent container radius
-                    bottomRight: Radius.circular(6),
+                    topLeft: Radius.circular(8.r),
+                    bottomRight: Radius.circular(6.r),
                   ),
                 ),
                 child: Text(
@@ -582,8 +597,8 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 5,
-            left: 15,
+            bottom: 5.h,
+            left: 15.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
