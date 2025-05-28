@@ -5,11 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/core/custom_assets/assets.gen.dart';
 import 'package:groc_shopy/presentation/widgets/custom_navbar/custom_navbar.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
+import 'package:groc_shopy/utils/static_strings/static_strings.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 class TransactionHistoryScreen extends StatelessWidget {
   TransactionHistoryScreen({super.key});
   final Color backgroundColor = Color(0xFFF8F4ED);
-  final Color accentColor = AppColors.primaryColor;
+  // final Color accentColor = AppColors.primaryColor;
   final Color lightGray = Color(0xFFD9D9D9);
   final Color darkGray = Color(0xFF858585);
 
@@ -91,13 +93,8 @@ class TransactionHistoryScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Transaction History',
-          style: GoogleFonts.kohSantepheap(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w700,
-            color: Color(0xff404040),
-            letterSpacing: 0.8,
-          ),
+          AppStrings.transactionHistory,
+          style: AppStyle.kohSantepheap16w700C000000,
         ),
         actions: [
           Padding(
@@ -139,21 +136,13 @@ class TransactionHistoryScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Total Spending',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: darkGray,
-                      fontSize: 14,
-                    ),
+                    AppStrings.totalSpending,
+                    style: AppStyle.roboto16w600C80000000,
                   ),
                   Spacer(),
                   Text(
                     '\$1920',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                      color: accentColor,
-                    ),
+                    style: AppStyle.roboto24w500CFFD673,
                   ),
                 ],
               ),
@@ -189,7 +178,7 @@ class TransactionHistoryScreen extends StatelessWidget {
       padding: EdgeInsets.all(12),
       decoration: selected
           ? BoxDecoration(
-              color: accentColor,
+              color: AppColors.yellowFFD673,
               borderRadius: BorderRadius.circular(14),
             )
           : null,
@@ -214,11 +203,7 @@ class TransactionHistoryScreen extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: GoogleFonts.inter(
-          fontSize: 12.sp,
-          fontWeight: FontWeight.w500,
-          color: Colors.black.withOpacity(0.7),
-        ),
+        style: AppStyle.inter12w500CB2000000,
       ),
     );
   }
@@ -235,20 +220,12 @@ class TransactionHistoryScreen extends StatelessWidget {
             children: [
               Text(
                 group.date,
-                style: GoogleFonts.roboto(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black.withOpacity(0.5),
-                ),
+                style: AppStyle.roboto12w600C80000000,
               ),
               Spacer(),
               Text(
                 '\$${group.total}',
-                style: GoogleFonts.roboto(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w600,
-                  color: accentColor,
-                ),
+                style: AppStyle.roboto12w600CFFD673,
               ),
             ],
           ),
@@ -282,33 +259,18 @@ class TransactionHistoryScreen extends StatelessWidget {
             children: [
               Text(
                 item.title,
-                style: GoogleFonts.roboto(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black,
-                  letterSpacing: 0.8,
-                ),
+                style: AppStyle.roboto16w400C000000,
               ),
               Text(
                 item.subtitle,
-                style: GoogleFonts.roboto(
-                  fontSize: 10.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black.withOpacity(0.5),
-                  letterSpacing: 0.8,
-                ),
+                style: AppStyle.roboto10w400C80000000,
               ),
             ],
           ),
           Spacer(),
           Text(
             '\$${item.amount}',
-            style: GoogleFonts.roboto(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.primary,
-              letterSpacing: 0.8,
-            ),
+            style: AppStyle.roboto16w500CFFD673,
           ),
         ],
       ),

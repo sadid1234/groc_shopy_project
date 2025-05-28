@@ -37,13 +37,13 @@ class SplashScreen extends StatelessWidget {
             Center(
               child: Text(
                 AppStrings.appName,
-                style: AppTextStyles.robotoSerif24w600Black,
+                style: AppStyle.robotoSerif24w600C000000,
               ),
             ),
             Gap(97.h),
             Text(
               AppStrings.appTagLine,
-              style: AppTextStyles.kohSantepheap24w400,
+              style: AppStyle.kohSantepheap24w400C3F3F3F,
             ),
             Gap(92.h),
             SliderButton(

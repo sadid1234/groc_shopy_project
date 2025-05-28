@@ -4,11 +4,13 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
 import '../../../utils/app_colors/app_colors.dart';
 import '../../../utils/static_strings/static_strings.dart';
+import '../../widgets/custom_text_form_field/custom_text_form.dart';
 
 class CodeVerificationScreen extends StatefulWidget {
   const CodeVerificationScreen({super.key});
@@ -72,13 +74,7 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const emailText = 'contact@dscode...com';
-    const backgroundColor = Color(0xFFF5F1E9);
-    const yellowColor = AppColors.primaryColor;
-    const grayBorderColor = Color(0xffE1E1E1);
-
     return Scaffold(
-      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
@@ -96,12 +92,8 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
               ),
               const SizedBox(height: 16),
               Text(
-                'Check your email',
-                style: GoogleFonts.inter(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF1E1E1E),
-                ),
+                AppStrings.checkYourEmail,
+                style: AppStyle.kohSantepheap18w700C1E1E1E,
               ),
               Gap(18.h),
 
@@ -116,31 +108,19 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                         Wrap(
                           children: [
                             Text(
-                              'We sent a reset link to ',
-                              style: GoogleFonts.roboto(
-                                fontSize: 14.sp,
-                                color: const Color(0xFF989898),
-                                fontWeight: FontWeight.w500,
-                              ),
+                              AppStrings.weSent,
+                              style: AppStyle.roboto14w600C989898,
                             ),
                             Text(
-                              emailText,
-                              style: GoogleFonts.roboto(
-                                fontSize: 14.sp,
-                                color: const Color(0xFF545454),
-                                fontWeight: FontWeight.w600,
-                              ),
+                              AppStrings.emailText,
+                              style: AppStyle.roboto14w600C545454,
                             ),
                           ],
                         ),
                         Gap(10.h),
                         Text(
-                          'Enter the 5-digit code mentioned in the email',
-                          style: GoogleFonts.roboto(
-                            fontSize: 14.sp,
-                            color: Color(0xFF989898),
-                            fontWeight: FontWeight.w500,
-                          ),
+                          AppStrings.enterYour5Digit,
+                          style: AppStyle.roboto14w600C989898,
                         ),
                       ],
                     ),
@@ -154,38 +134,54 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                   return Container(
                     width: 56.w,
                     height: 56.h,
-                    child: TextField(
+                    // child: TextField(
+                    //   controller: controllers[index],
+                    //   focusNode: focusNodes[index],
+                    //   keyboardType: TextInputType.number,
+                    //   textAlign: TextAlign.center,
+                    //   textAlignVertical: TextAlignVertical.center,
+                    //   maxLength: 1,
+                    //   style: AppStyle.poppins18w600C545454,
+                    //   decoration: InputDecoration(
+                    //     isDense: true,
+                    //     contentPadding: EdgeInsets.symmetric(vertical: 45.h),
+                    //     counterText: '',
+                    //     enabledBorder: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(8),
+                    //       borderSide: BorderSide(
+                    //           color: controllers[index].text.isEmpty
+                    //               ? AppColors.borderE1E1E1
+                    //               : AppColors.yellowFFD673,
+                    //           width: 3),
+                    //     ),
+                    //     focusedBorder: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(8),
+                    //       borderSide: const BorderSide(
+                    //         color: AppColors.yellowFFD673,
+                    //         width: 3,
+                    //       ),
+                    //     ),
+                    //   ),
+                    //   onChanged: (value) => _onCodeChanged(index, value),
+                    // ),
+                    child: CustomTextFormField(
                       controller: controllers[index],
                       focusNode: focusNodes[index],
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.center,
                       textAlignVertical: TextAlignVertical.center,
                       maxLength: 1,
-                      style: GoogleFonts.poppins(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF545454),
-                      ),
-                      decoration: InputDecoration(
-                        isDense: true,
-                        contentPadding: EdgeInsets.symmetric(vertical: 45.h),
-                        counterText: '',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
-                              color: controllers[index].text.isEmpty
-                                  ? grayBorderColor
-                                  : yellowColor,
-                              width: 3),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: const BorderSide(
-                            color: yellowColor,
-                            width: 3,
-                          ),
-                        ),
-                      ),
+                      style: AppStyle.poppins18w600C545454,
+                      contentPadding: EdgeInsets.symmetric(vertical: 45.h),
+                      borderRadius: BorderRadius.circular(8),
+                      enabledBorderColor: controllers[index].text.isEmpty
+                          ? AppColors.borderE1E1E1
+                          : AppColors.yellowFFD673,
+                      enabledBorderWidth: 3,
+                      focusedBorderColor: AppColors.yellowFFD673,
+                      focusedBorderWidth: 3,
+                      showCounter: false,
+                      filled: false, // no fill color here, keep transparent
                       onChanged: (value) => _onCodeChanged(index, value),
                     ),
                   );
@@ -199,21 +195,18 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                   onPressed: isCodeComplete ? _verifyCode : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: isCodeComplete
-                        ? yellowColor
-                        : yellowColor.withOpacity(0.4),
-                    disabledBackgroundColor: yellowColor.withOpacity(0.4),
+                        ? AppColors.yellowFFD673
+                        : AppColors.yellowFFD673.withOpacity(0.4),
+                    disabledBackgroundColor:
+                        AppColors.yellowFFD673.withOpacity(0.4),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     elevation: 0,
                   ),
                   child: Text(
-                    'Verify Code',
-                    style: GoogleFonts.inter(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16.sp,
-                    ),
+                    AppStrings.verifyCode,
+                    style: AppStyle.inter16w700CFFFFFF,
                   ),
                 ),
               ),
@@ -222,12 +215,8 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Haven’t got the email yet? ",
-                    style: GoogleFonts.inter(
-                      color: Color(0xFF989898),
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16.sp,
-                    ),
+                    AppStrings.haveNotGotTheMail,
+                    style: AppStyle.inter14w600C989898,
                   ),
                   GestureDetector(
                     onTap: () {},
@@ -240,12 +229,8 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                               bottom:
                                   2), // Adds space between text and underline
                           child: Text(
-                            'Resend email', // Your text
-                            style: GoogleFonts.inter(
-                              color: AppColors.primaryColor,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16.sp,
-                            ),
+                            AppStrings.resendEmail, // Your text
+                            style: AppStyle.inter14w600CFFD673U,
                           ),
                         ),
                         // The underline with custom gap
@@ -257,7 +242,7 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                           child: Container(
                             height: 2, // Thickness of the underline
                             color: AppColors
-                                .primaryColor, // Color of the underline
+                                .yellowFFD673, // Color of the underline
                           ),
                         ),
                       ],

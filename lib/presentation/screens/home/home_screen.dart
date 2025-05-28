@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/core/routes/route_path.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
+import 'package:groc_shopy/utils/static_strings/static_strings.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../widgets/custom_navbar/custom_navbar.dart';
@@ -39,19 +41,11 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Text(
                               'Alex Thomson',
-                              style: GoogleFonts.kohSantepheap(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w700,
-                                color: Color(0xff404040),
-                              ),
+                              style: AppStyle.kohSantepheap16w700C3F3F3F,
                             ),
                             Text(
                               'Your grocery expenses at a glance',
-                              style: GoogleFonts.roboto(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black.withOpacity(0.5),
-                              ),
+                              style: AppStyle.roboto12w400C80000000,
                             ),
                           ],
                         ),
@@ -158,26 +152,17 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Text(
                               '25 April, 2025',
-                              style: GoogleFonts.roboto(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xff5B5B5B),
-                              ),
+                              style: AppStyle.roboto12w400C5A5A5A,
                             ),
                             SizedBox(height: 4),
                             Text(
-                              'Monthly Report',
-                              style: GoogleFonts.roboto(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xff5B5B5B),
-                              ),
+                              AppStrings.monthlyReport,
+                              style: AppStyle.roboto16w400C000000,
                             ),
                           ],
                         ),
                         CircleAvatar(
                           radius: 25.r,
-
                           backgroundColor: Color(0xFF0000000)
                               .withOpacity(0.05), // grey background
                           child: Image.asset(
@@ -201,20 +186,12 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Monthly Grocery Spending',
-                          style: GoogleFonts.kohSantepheap(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                          ),
+                          AppStrings.monthlyGrocerySpending,
+                          style: AppStyle.kohSantepheap18w400C000000,
                         ),
                         Text(
-                          'Total expenses',
-                          style: GoogleFonts.roboto(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xff000000).withOpacity(0.5),
-                          ),
+                          AppStrings.totalExpenses,
+                          style: AppStyle.roboto12w400C80000000,
                         ),
                       ],
                     ),
@@ -229,7 +206,7 @@ class HomeScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
-                            color: AppColors.primary,
+                            color: AppColors.yellowFFD673,
                           ), // similar to OutlinedButton border
                         ),
                         child: Row(
@@ -237,12 +214,8 @@ class HomeScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'View Breakdown',
-                              style: GoogleFonts.roboto(
-                                fontSize: 10.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xff000000).withOpacity(0.5),
-                              ),
+                              AppStrings.viewBreakdown,
+                              style: AppStyle.roboto10w400C000000,
                             ),
                             SizedBox(width: 4),
                             SvgPicture.asset(
@@ -311,29 +284,18 @@ class HomeScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Total Spent',
-                                        style: GoogleFonts.roboto(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        AppStrings.totalSpent,
+                                        style: AppStyle.roboto16w500C000000,
                                       ),
                                       Text(
-                                        'Track total spent',
-                                        style: GoogleFonts.roboto(
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black.withOpacity(0.5),
-                                        ),
+                                        AppStrings.trackTotalSpent,
+                                        style: AppStyle.roboto10w500C80000000,
                                       ),
                                     ],
                                   ),
                                   Text(
                                     '\$2800',
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.black,
-                                    ),
+                                    style: AppStyle.roboto14w500C000000,
                                   ),
                                 ],
                               ),
@@ -342,12 +304,8 @@ class HomeScreen extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Add',
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black,
-                                    ),
+                                    AppStrings.add,
+                                    style: AppStyle.roboto12w400C000000,
                                   ),
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
@@ -414,28 +372,19 @@ class HomeScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Budget Limit',
-                                        style: GoogleFonts.roboto(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        AppStrings.budgetLimit,
+                                        style: AppStyle.roboto16w500C000000,
                                       ),
                                       Text(
-                                        'Under budget',
-                                        style: GoogleFonts.roboto(
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black.withOpacity(0.5),
-                                        ),
+                                        AppStrings.underBudget,
+                                        style: AppStyle.roboto10w500C80000000,
                                       ),
                                     ],
                                   ),
-                                  Text('\$3000',
-                                      style: GoogleFonts.roboto(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black,
-                                      )),
+                                  Text(
+                                    '\$3000',
+                                    style: AppStyle.roboto14w500C000000,
+                                  ),
                                 ],
                               ),
                               Row(
@@ -443,12 +392,8 @@ class HomeScreen extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Add',
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black,
-                                    ),
+                                    AppStrings.add,
+                                    style: AppStyle.roboto12w400C000000,
                                   ),
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
@@ -473,12 +418,8 @@ class HomeScreen extends StatelessWidget {
 
                 // Recent Purchases horizontal scroll
                 Text(
-                  'Recent Purchases',
-                  style: GoogleFonts.kohSantepheap(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                  ),
+                  AppStrings.recentPurchases,
+                  style: AppStyle.kohSantepheap18w400C000000,
                 ),
                 SizedBox(height: 12),
                 SizedBox(
@@ -517,20 +458,12 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Purchase History',
-                          style: GoogleFonts.kohSantepheap(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                          ),
+                          AppStrings.purchaseHistory,
+                          style: AppStyle.kohSantepheap18w400C000000,
                         ),
                         Text(
-                          'Items you\'ve bought',
-                          style: GoogleFonts.roboto(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                          ),
+                          AppStrings.itemsYouveBought,
+                          style: AppStyle.roboto12w400C80000000,
                         ),
                       ],
                     ),
@@ -545,7 +478,7 @@ class HomeScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
-                            color: AppColors.primary,
+                            color: AppColors.yellowFFD673,
                           ), // similar to OutlinedButton border
                         ),
                         child: Row(
@@ -553,12 +486,8 @@ class HomeScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'View All',
-                              style: GoogleFonts.roboto(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black,
-                              ),
+                              AppStrings.viewAll,
+                              style: AppStyle.roboto12w400C000000,
                             ),
                             SizedBox(width: 4),
                             SvgPicture.asset(
@@ -647,11 +576,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: Text(
                   category,
-                  style: GoogleFonts.roboto(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
+                  style: AppStyle.roboto12w500C000000,
                 ),
               ),
             ),
@@ -664,19 +589,11 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: GoogleFonts.roboto(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                  ),
+                  style: AppStyle.roboto12w400C000000,
                 ),
                 Text(
                   price,
-                  style: GoogleFonts.roboto(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
+                  style: AppStyle.roboto16w500C000000,
                 ),
               ],
             ),
@@ -702,25 +619,15 @@ class HomeScreen extends StatelessWidget {
           ),
           title: Text(
             item,
-            style: GoogleFonts.roboto(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
-              color: Colors.black,
-            ),
+            style: AppStyle.roboto14w400C000000,
           ),
-          subtitle: Text(category,
-              style: GoogleFonts.roboto(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w400,
-                color: Colors.black.withOpacity(0.5),
-              )),
+          subtitle: Text(
+            category,
+            style: AppStyle.roboto12w400C80000000,
+          ),
           trailing: Text(
             price,
-            style: GoogleFonts.roboto(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-            ),
+            style: AppStyle.roboto14w500C000000,
           ),
           dense: true,
           contentPadding: EdgeInsets.zero,

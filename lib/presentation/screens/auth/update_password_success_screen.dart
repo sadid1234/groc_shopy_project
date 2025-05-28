@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
+import 'package:groc_shopy/utils/static_strings/static_strings.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/routes/route_path.dart';
 
@@ -12,7 +14,7 @@ class UpdatePasswordSuccessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor, // Light beige background
+      // Light beige background
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -49,21 +51,13 @@ class UpdatePasswordSuccessScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Successful",
-                      style: GoogleFonts.poppins(
-                        color: Color(0xff1E1E1E),
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      AppStrings.successful,
+                      style: AppStyle.robotoSerif20w600C1E1E1E,
                     ),
                     Gap(24.h),
                     Text(
-                      "Congratulations! Your password has been changed. Click continue to login",
-                      style: GoogleFonts.inter(
-                        color: Color(0xff989898),
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      AppStrings.congratulations,
+                      style: AppStyle.roboto16w500C989898,
                       textAlign: TextAlign.center,
                     ),
                     Gap(33.h),
@@ -82,12 +76,8 @@ class UpdatePasswordSuccessScreen extends StatelessWidget {
                           elevation: 0,
                         ),
                         child: Text(
-                          'Update Password',
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16.sp,
-                            color: Colors.white,
-                          ),
+                          AppStrings.updatePassword,
+                          style: AppStyle.inter16w700CFFFFFF,
                         ),
                       ),
                     )

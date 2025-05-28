@@ -5,9 +5,12 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
+import '../../../utils/static_strings/static_strings.dart';
+import '../../widgets/custom_text_form_field/custom_text_form.dart';
 
 class SetPasswordScreen extends StatefulWidget {
   const SetPasswordScreen({super.key});
@@ -49,7 +52,7 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
     );
 
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor, // light cream background
+      // light cream background
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -68,133 +71,142 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
               Gap(53.h),
               // Title
               Text(
-                'Set a new password',
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18.sp,
-                  color: Color(0xFF1E1E1E), // dark grey
-                ),
+                AppStrings.setANewPassword,
+                style: AppStyle.kohSantepheap18w700C1E1E1E,
               ),
               Gap(18.h),
               Text(
-                'Create a new password. Ensure it differs from\nprevious ones for security',
-                style: GoogleFonts.roboto(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14.sp,
-                  color: Color(0xFF989898), // dark grey
-                ),
+                AppStrings.createANewPassword,
+                style: AppStyle.roboto14w500C989898,
               ),
               Gap(44.h),
               // Password Field
               Text(
-                'Password',
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16.sp,
-                  color: Color(0xFF2A2A2A), // dark grey
-                ),
+                AppStrings.password,
+                style: AppStyle.roboto16w600C2A2A2A,
               ),
               Gap(8.h),
-              TextField(
-                style: GoogleFonts.poppins(
-                  color: Color(0xff545454),
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                ),
+              // TextField(
+              //   style: AppStyle.roboto16w500C545454,
+              //   controller: _passwordController,
+              //   obscureText: _obscurePassword,
+              //   decoration: InputDecoration(
+              //     hintText: AppStrings.enterYourNewPassword,
+              //     hintStyle: AppStyle.roboto14w500CB3B3B3,
+              //     contentPadding:
+              //         const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              //     // border: inputBorder,
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(12.dg),
+              //       borderSide:
+              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
+              //     ),
+              //     enabledBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(12),
+              //       borderSide:
+              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
+              //     ),
+              //     focusedBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(12.dg),
+              //       borderSide:
+              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.8.w),
+              //     ),
+              //     suffixIcon: IconButton(
+              //       icon: Icon(_obscurePassword
+              //           ? Icons.visibility_off_outlined
+              //           : Icons.visibility_outlined),
+              //       onPressed: _togglePasswordVisibility,
+              //     ),
+              //   ),
+              // ),
+              // Gap(16.h),
+              // // Confirm Password Field
+              // Text(
+              //   AppStrings.confirmPasswordHint,
+              //   style: AppStyle.roboto16w600C2A2A2A,
+              // ),
+              // Gap(8.h),
+              // TextField(
+              //   style: AppStyle.roboto16w500C545454,
+              //   controller: _confirmPasswordController,
+              //   obscureText: _obscureConfirmPassword,
+              //   decoration: InputDecoration(
+              //     hintText: AppStrings.reEnterPassword,
+              //     hintStyle: AppStyle.roboto14w500CB3B3B3,
+              //     contentPadding:
+              //         const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(12.dg),
+              //       borderSide:
+              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
+              //     ),
+              //     enabledBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(12),
+              //       borderSide:
+              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
+              //     ),
+              //     focusedBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(12.dg),
+              //       borderSide:
+              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.8.w),
+              //     ),
+              //     suffixIcon: IconButton(
+              //       icon: Icon(
+              //         _obscureConfirmPassword
+              //             ? Icons.visibility_off_outlined
+              //             : Icons.visibility_outlined,
+              //       ),
+              //       onPressed: _toggleConfirmPasswordVisibility,
+              //     ),
+              //   ),
+              // ),
+              CustomTextFormField(
                 controller: _passwordController,
+                hintText: AppStrings.enterYourNewPassword,
                 obscureText: _obscurePassword,
-                decoration: InputDecoration(
-                  hintText: "Enter your new password",
-                  hintStyle: GoogleFonts.poppins(
-                    color: Color(0xffB3B3B3),
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  // border: inputBorder,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.dg),
-                    borderSide: BorderSide(
-                        color: AppColors.textFieldBorderResetColor,
-                        width: 1.5.w),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                        color: AppColors.textFieldBorderResetColor,
-                        width: 1.5.w),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.dg),
-                    borderSide: BorderSide(
-                        color: AppColors.textFieldBorderResetColor,
-                        width: 1.8.w),
-                  ),
-                  suffixIcon: IconButton(
-                    icon: Icon(_obscurePassword
-                        ? Icons.visibility_off_outlined
-                        : Icons.visibility_outlined),
-                    onPressed: _togglePasswordVisibility,
-                  ),
-                ),
+                suffixIcon: _obscurePassword
+                    ? Icons.visibility_off_outlined
+                    : Icons.visibility_outlined,
+                onSuffixIconTap: _togglePasswordVisibility,
+                style: AppStyle.roboto16w500C545454,
+                hintStyle: AppStyle.roboto14w500CB3B3B3,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                enabledBorderColor: AppColors.borderE1E1E1,
+                focusedBorderColor: AppColors.borderE1E1E1,
+                enabledBorderWidth: 1.5.w,
+                focusedBorderWidth: 1.8.w,
+                borderRadius: BorderRadius.circular(12.dg),
               ),
+
               Gap(16.h),
-              // Confirm Password Field
+
               Text(
-                'Confirm Password',
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16.sp,
-                  color: Color(0xFF2A2A2A), // dark grey
-                ),
+                AppStrings.confirmPasswordHint,
+                style: AppStyle.roboto16w600C2A2A2A,
               ),
+
               Gap(8.h),
-              TextField(
-                style: GoogleFonts.poppins(
-                  color: Color(0xff545454),
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                ),
+
+              CustomTextFormField(
                 controller: _confirmPasswordController,
+                hintText: AppStrings.reEnterPassword,
                 obscureText: _obscureConfirmPassword,
-                decoration: InputDecoration(
-                  hintText: "Re-enter password",
-                  hintStyle: GoogleFonts.poppins(
-                    color: Color(0xffB3B3B3),
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.dg),
-                    borderSide: BorderSide(
-                        color: AppColors.textFieldBorderResetColor,
-                        width: 1.5.w),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                        color: AppColors.textFieldBorderResetColor,
-                        width: 1.5.w),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.dg),
-                    borderSide: BorderSide(
-                        color: AppColors.textFieldBorderResetColor,
-                        width: 1.8.w),
-                  ),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscureConfirmPassword
-                          ? Icons.visibility_off_outlined
-                          : Icons.visibility_outlined,
-                    ),
-                    onPressed: _toggleConfirmPasswordVisibility,
-                  ),
-                ),
+                suffixIcon: _obscureConfirmPassword
+                    ? Icons.visibility_off_outlined
+                    : Icons.visibility_outlined,
+                onSuffixIconTap: _toggleConfirmPasswordVisibility,
+                style: AppStyle.roboto16w500C545454,
+                hintStyle: AppStyle.roboto14w500CB3B3B3,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                enabledBorderColor: AppColors.borderE1E1E1,
+                focusedBorderColor: AppColors.borderE1E1E1,
+                enabledBorderWidth: 1.5.w,
+                focusedBorderWidth: 1.8.w,
+                borderRadius: BorderRadius.circular(12.dg),
               ),
+
               const SizedBox(height: 30),
               // Update Password Button
               SizedBox(
@@ -212,12 +224,8 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
                     elevation: 0,
                   ),
                   child: Text(
-                    'Update Password',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16.sp,
-                      color: Colors.white,
-                    ),
+                    AppStrings.updatePassword,
+                    style: AppStyle.inter16w700CFFFFFF,
                   ),
                 ),
               )

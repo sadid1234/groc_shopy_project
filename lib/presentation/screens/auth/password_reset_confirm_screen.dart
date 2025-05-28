@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/core/routes/route_path.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
+import 'package:groc_shopy/utils/static_strings/static_strings.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 
@@ -32,21 +34,13 @@ class PasswordResetConfirmScreen extends StatelessWidget {
               ),
               Gap(53.h),
               Text(
-                'Password reset',
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18.sp,
-                  color: Color(0xFF1E1E1E), // dark grey
-                ),
+                AppStrings.passwordReset,
+                style: AppStyle.kohSantepheap18w700C1E1E1E,
               ),
               Gap(18.h),
               Text(
-                'Your password has been successfully reset. click confirm to set a new password',
-                style: GoogleFonts.roboto(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14.sp,
-                  color: Color(0xFF989898), // light grey
-                ),
+                AppStrings.confirmPassword,
+                style: AppStyle.roboto14w500C989898,
               ),
               Gap(32.h),
               SizedBox(
@@ -64,12 +58,8 @@ class PasswordResetConfirmScreen extends StatelessWidget {
                     elevation: 0,
                   ),
                   child: Text(
-                    'Confirm',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16.sp,
-                      color: Colors.white,
-                    ),
+                    AppStrings.confirm,
+                    style: AppStyle.inter16w700CFFFFFF,
                   ),
                 ),
               )

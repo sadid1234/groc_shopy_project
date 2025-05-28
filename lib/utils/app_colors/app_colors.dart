@@ -9,11 +9,14 @@ class AppColors {
   static const yellowFFD673 = Color(0xFFFFD673);
   static const mediumGreyText989898 = Color(0xFF989898);
   static const darkGreyText545454 = Color(0xFF545454);
+  static const darkGreyD9D9D9 = Color(0xFFD9D9D9);
   static const darkGrayText3F3F3F = Color(0xFF3F3F3F);
   static const blackTextDarkGray2A2A2A = Color(0xFF2A2A2A);
   static const blackText1E1E1E = Color(0xFF1E1E1E);
   static const darkText090A0A = Color(0xFF090A0A);
   static const lightGreyTextB3B3B3 = Color(0xFFB3B3B3);
   static const whiteFFFFFF = Color(0xFFFFFFFF);
+  static const borderE1E1E1 = Color(0xFFE1E1E1);
+  static const backgroundColor = Color(0xFFF5F0EC);
   // Add other colors as needed
 }

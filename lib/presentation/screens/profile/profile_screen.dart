@@ -6,6 +6,7 @@ import 'package:groc_shopy/core/custom_assets/assets.gen.dart';
 import 'package:groc_shopy/presentation/widgets/custom_navbar/custom_navbar.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -135,31 +136,19 @@ class _ProfileScreenState extends State<ProfileScreen>
               children: [
                 Text(
                   receipt['store'],
-                  style: GoogleFonts.roboto(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12.sp,
-                    color: Colors.black,
-                  ),
+                  style: AppStyle.roboto12w400C000000,
                 ),
                 const SizedBox(height: 4),
                 Text(
                   'Items: ${receipt['items']}',
-                  style: GoogleFonts.roboto(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 10.sp,
-                    color: Colors.black.withOpacity(0.7),
-                  ),
+                  style: AppStyle.roboto10w400CB2000000,
                 ),
               ],
             ),
           ),
           Text(
             receipt['price'],
-            style: GoogleFonts.roboto(
-              fontWeight: FontWeight.w400,
-              fontSize: 12.sp,
-              color: AppColors.primaryColor,
-            ),
+            style: AppStyle.roboto12w400CFFD673,
           ),
           const SizedBox(width: 10),
         ],
@@ -173,19 +162,12 @@ class _ProfileScreenState extends State<ProfileScreen>
     // example profile
 
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor,
         elevation: 0,
         centerTitle: true,
         title: Text(
           AppStrings.profile,
-          style: GoogleFonts.kohSantepheap(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w700,
-            color: Color(0xff404040),
-            letterSpacing: 0.8,
-          ),
+          style: AppStyle.kohSantepheap16w700C3F3F3F,
         ),
         actions: [
           Padding(
@@ -231,30 +213,18 @@ class _ProfileScreenState extends State<ProfileScreen>
             ),
             const SizedBox(height: 40),
             Text(
-              'Tomas Alen',
-              style: GoogleFonts.kohSantepheap(
-                fontWeight: FontWeight.w700,
-                fontSize: 15.sp,
-                color: Colors.black,
-              ),
+              'Alex Thomson',
+              style: AppStyle.kohSantepheap16w700C3F3F3F,
             ),
             const SizedBox(height: 4),
             Text(
-              'Employee',
-              style: GoogleFonts.roboto(
-                fontWeight: FontWeight.w400,
-                fontSize: 12.sp,
-                color: Colors.black.withOpacity(0.5),
-              ),
+              'Manager',
+              style: AppStyle.roboto12w400C80000000,
             ),
             const SizedBox(height: 2),
             Text(
-              'Groc Shopy',
-              style: GoogleFonts.roboto(
-                fontWeight: FontWeight.w400,
-                fontSize: 12.sp,
-                color: Colors.black,
-              ),
+              'GastRonomIQ',
+              style: AppStyle.robotoSerif12w500C000000,
             ),
 
             Gap(47.h),
@@ -262,12 +232,82 @@ class _ProfileScreenState extends State<ProfileScreen>
             Align(
               alignment: Alignment.center,
               child: Text(
-                'Added Receipt',
-                style: GoogleFonts.kohSantepheap(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15.sp,
-                  color: Colors.black,
-                ),
+                AppStrings.addedReceipt,
+                style: AppStyle.kohSantepheap16w700C000000,
+              ),
+            ),
+            Gap(21.h),
+            Container(
+              width: 349,
+              height: 118,
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 0,
+                    top: 0,
+                    child: Container(
+                      width: 349,
+                      height: 118,
+                      decoration: ShapeDecoration(
+                        color: AppColors.yellowFFD673,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 81,
+                    top: 70,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 5),
+                      decoration: ShapeDecoration(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        spacing: 10,
+                        children: [
+                          Text(
+                            AppStrings.upgradeFrom,
+                            style: AppStyle.inter14w500C000000,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 56,
+                    top: 35,
+                    child: SizedBox(
+                      width: 236,
+                      height: 22,
+                      child: Text(
+                        AppStrings.unlockExclusiveFeatures,
+                        textAlign: TextAlign.center,
+                        style: AppStyle.roboto11w400CFFFFFF,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 123,
+                    top: 14,
+                    child: SizedBox(
+                      width: 104,
+                      height: 14,
+                      child: Text(
+                        AppStrings.appName,
+                        style: AppStyle.robotoSerif16w700CFFFFFF,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Gap(21.h),
@@ -316,10 +356,8 @@ class _ProfileScreenState extends State<ProfileScreen>
 }
 
 Widget _buildRoleTab(String title, bool selected, VoidCallback onTap) {
-  final primaryYellow = AppColors.primaryColor;
-  final black50 = Colors.black.withOpacity(0.5);
-
-  final color = selected ? primaryYellow : black50;
+  final color =
+      selected ? AppColors.yellowFFD673 : AppColors.black50opacity80000000;
   final fontWeight = selected ? FontWeight.bold : FontWeight.normal;
 
   return GestureDetector(
@@ -332,17 +370,13 @@ Widget _buildRoleTab(String title, bool selected, VoidCallback onTap) {
         children: [
           Text(
             title,
-            style: GoogleFonts.inter(
-              fontWeight: selected ? FontWeight.w800 : FontWeight.w700,
-              fontSize: 16.sp,
-              color: color,
-            ),
+            style: AppStyle.roboto16w700CFFD673,
           ),
           Gap(12.h),
           Container(
             height: selected ? 4.h : 1.h,
             decoration: BoxDecoration(
-              color: selected ? primaryYellow : black50,
+              color: color,
               borderRadius: BorderRadius.circular(3),
             ),
           ),

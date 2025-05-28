@@ -2,9 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/presentation/widgets/custom_navbar/custom_navbar.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
+import 'package:groc_shopy/utils/static_strings/static_strings.dart';
+import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 class ScannedItemsScreen extends StatelessWidget {
   final File? image; // Add this
@@ -46,21 +49,15 @@ class ScannedItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Color(0xFFFAF7F1), // light background like your screenshot
+      // light background like your screenshot
       appBar: AppBar(
         backgroundColor: Color(0xFFFAF7F1),
         elevation: 0,
         leading: BackButton(color: Colors.grey),
         centerTitle: true,
         title: Text(
-          "Grocery Items",
-          style: GoogleFonts.kohSantepheap(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w700,
-            color: Colors.black,
-            letterSpacing: 0.8,
-          ),
+          AppStrings.groceryItems,
+          style: AppStyle.kohSantepheap16w700C000000,
         ),
         actions: [
           Icon(Icons.more_horiz, color: Colors.grey),
@@ -94,13 +91,8 @@ class ScannedItemsScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Recent Scans",
-                style: GoogleFonts.roboto(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                  letterSpacing: 0.8,
-                ),
+                AppStrings.recentScans,
+                style: AppStyle.roboto14w500C000000,
               ),
             ),
 
@@ -136,26 +128,11 @@ class ScannedItemsScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(item['name'],
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black,
-                                      letterSpacing: 0.8,
-                                    )),
+                                    style: AppStyle.roboto14w400C000000),
                                 Text(item['date'],
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 10.sp,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black.withOpacity(0.5),
-                                      letterSpacing: 0.8,
-                                    )),
+                                    style: AppStyle.roboto10w400C80000000),
                                 Text(item['price'],
-                                    style: GoogleFonts.roboto(
-                                      fontSize: 10.sp,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.primary,
-                                      letterSpacing: 0.8,
-                                    )),
+                                    style: AppStyle.roboto10w400CFFD673),
                               ],
                             ),
                           ],
@@ -172,12 +149,7 @@ class ScannedItemsScreen extends StatelessWidget {
                           ),
                           child: Text(
                             item['status'],
-                            style: GoogleFonts.roboto(
-                              fontSize: 8.sp,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                              letterSpacing: 0.8,
-                            ),
+                            style: AppStyle.roboto8w500C000000,
                           ),
                         ),
                       ],
@@ -196,14 +168,14 @@ class ScannedItemsScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
                   text: 'Edit',
                   onPressed: () {
-                    Navigator.pop(context);
+                    context.pop();
                   },
                 ),
                 SizedBox(width: 20),
                 CustomOutlinedButton(
                   borderColor: Colors.black,
                   textColor: Colors.white,
-                  backgroundColor: AppColors.primary,
+                  backgroundColor: AppColors.yellowFFD673,
                   width: 86,
                   height: 32,
                   padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
@@ -261,9 +233,8 @@ class CustomOutlinedButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(
+          style: AppStyle.inter14w700CFFFFFF.copyWith(
             color: textColor,
-            fontWeight: FontWeight.w600,
           ),
         ),
       ),

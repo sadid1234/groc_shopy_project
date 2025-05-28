@@ -15,9 +15,40 @@ class AppStrings {
   static const String fullName = "Full Name";
   static const String employee = "Employee";
   static const String admin = "Admin";
+  static const String successful = "Successful";
 
+  static const String congratulations =
+      "Congratulations! Your password has been changed. Click continue to login";
+  static const String emailText = 'contact@dscode...com';
+  static const String passwordReset = "Password reset";
   static const String enterYourEmailHint = "Enter your email";
+  static const String reEnterPassword = "Re-enter password";
+  static const String confirmPasswordHint = "Confirm Password";
+  static const String monthlyReport = 'Monthly Report';
+  static const String updatePassword = 'Update Password';
+  static const String resendEmail = 'Resend email';
+  static const String setANewPassword = 'Set a new password';
+  static const String monthlyGrocerySpending = 'Monthly Grocery Spending';
+  static const String totalExpenses = 'Total expenses';
+  static const String viewBreakdown = 'View Breakdown';
+  static const String trackTotalSpent = 'Track total spent';
+  static const String totalSpent = 'Total Spent';
+  static const String budgetLimit = 'Budget Limit';
+  static const String underBudget = 'Under budget';
+  static const String recentPurchases = 'Recent Purchases';
+  static const String createANewPassword =
+      'Create a new password. Ensure it differs from\nprevious ones for security';
   static const String enterYourFullName = "Enter your full name";
+  static const String enterYourNewPassword = "Enter your new password";
+  static const String weSent = 'We sent a reset link to ';
+  static const String checkYourEmail = 'Check your email';
+  static const String haveNotGotTheMail = "Haven’t got the email yet? ";
+  static const String verifyCode = 'Verify Code';
+  static const String enterYour5Digit =
+      'Enter the 5-digit code mentioned in the email';
+  static const String confirm = 'Confirm';
+  static const String confirmPassword =
+      'Your password has been successfully reset. click confirm to set a new password';
   static RegExp emailRegexp = RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   static const String password = "Password";
@@ -50,7 +81,10 @@ class AppStrings {
   static const String youWillBe =
       "You will be charged \$9.99 (monthly plan) or \n \$60.99 (annual plan) through your iTunes \n account. You can cancel at any time if your \n not satisfied.";
   static const String appleStorePay = "Apple Store pay";
+  static const String unlockExclusivefeatures =
+      'Unlock exclusive features and supercharge your dating experience.';
   static const String completeYourPurchase = "Complete your Purchase";
+  static const String upgradeFrom = 'Upgrade from \$9.99';
   static const String paymentMethod = "Payment Method";
   static const String paymentMethodHint = "MasterCard 13345***44";
   static const String payWithApplePayAndGetOffers =
@@ -61,15 +95,8 @@ class AppStrings {
   ///====================== Home ========================
   static const String yourGroceryExpensesAtAGlance =
       "Your grocery expenses at a glance";
-  static const String monthlyReport = "Monthly Report";
-  static const String monthlyGrocerySpending = "Monthly Grocery Spending";
-  static const String viewBreakdown = "View Breakdown";
-  static const String totalSpent = "Total Spent";
-  static const String trackTotalSpent = "Track total spent";
-  static const String budgetLimit = "Budget Limit";
-  static const String underBudget = "Under budget";
+
   static const String add = "Add";
-  static const String recentPurchases = "Recent Purchases";
   static const String purchaseHistory = "Purchase History";
   static const String itemsYouveBought = "Items you've bought";
   static const String viewAll = "View All";
@@ -92,7 +119,7 @@ class AppStrings {
   static const String profile = "Profile";
   static const String unlockExclusiveFeatures =
       "Unlock exclusive features and supercharge your dating experience.";
-  static const String upgradeFrom = "Upgrade from \$9.99";
+  // static const String upgradeFrom = "Upgrade from \$9.99";
   static const String manager = "Manager";
   static const String addedReceipt = "Added Receipt";
   static const String recently = "Recently";

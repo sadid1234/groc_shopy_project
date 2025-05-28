@@ -11,6 +11,7 @@ import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
 import '../../../utils/text_style/text_style.dart';
+import '../../widgets/custom_text_form_field/custom_text_form.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -54,7 +55,7 @@ class AuthScreenState extends State<AuthScreen> {
                   Gap(15.h),
                   Text(
                     AppStrings.signIn,
-                    style: AppTextStyles.inter16w700Black,
+                    style: AppStyle.kohSantepheap18w700CFFD673,
                   ),
                   Gap(25.h),
                   // Tab bar for Employee/Admin
@@ -76,15 +77,45 @@ class AuthScreenState extends State<AuthScreen> {
                   Gap(45.h),
 
                   // Email TextField with shadow
-                  _buildTextField(
+                  // _buildTextField(
+                  //   controller: emailController,
+                  //   labelText: 'Email',
+                  //   hintText: 'Enter your email',
+                  //   suffixIcon: Icons.email_outlined,
+                  //   obscureText: false,
+                  // ),
+                  // Gap(35.h),
+                  // _buildTextField(
+                  //   controller: passwordController,
+                  //   labelText: 'Password',
+                  //   hintText: '********',
+                  //   suffixIcon: passwordVisible
+                  //       ? Icons.visibility_outlined
+                  //       : Icons.visibility_off_outlined,
+                  //   obscureText: !passwordVisible,
+                  //   onSuffixIconTap: () {
+                  //     setState(() {
+                  //       passwordVisible = !passwordVisible;
+                  //     });
+                  //   },
+                  // ),
+                  CustomTextFormField(
                     controller: emailController,
                     labelText: 'Email',
                     hintText: 'Enter your email',
                     suffixIcon: Icons.email_outlined,
                     obscureText: false,
+                    style: AppStyle.roboto14w400C80000000,
+                    labelStyle: AppStyle.roboto14w500C000000,
+                    enabledBorderColor: AppColors.black30opacity4D000000,
+                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    fillColor: Colors.white,
+                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
                   ),
+
                   Gap(35.h),
-                  _buildTextField(
+
+                  CustomTextFormField(
                     controller: passwordController,
                     labelText: 'Password',
                     hintText: '********',
@@ -97,7 +128,14 @@ class AuthScreenState extends State<AuthScreen> {
                         passwordVisible = !passwordVisible;
                       });
                     },
+                    style: AppStyle.roboto14w400C80000000,
+                    labelStyle: AppStyle.roboto14w500C000000,
+                    enabledBorderColor: AppColors.black30opacity4D000000,
+                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    fillColor: Colors.white,
+                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
                   ),
+
                   Gap(6.73.h),
                   Align(
                     alignment: Alignment.centerRight,
@@ -106,7 +144,7 @@ class AuthScreenState extends State<AuthScreen> {
                         context.push(RoutePath.forgotPass.addBasePath);
                       },
                       child: Text(AppStrings.forgotPassword,
-                          style: AppTextStyles.roboto14w500Yellow),
+                          style: AppStyle.roboto14w500CFFD673),
                     ),
                   ),
                   // Remember Me checkbox
@@ -123,7 +161,7 @@ class AuthScreenState extends State<AuthScreen> {
                       ),
                       Text(
                         AppStrings.rememberMe,
-                        style: AppTextStyles.roboto14w400Black,
+                        style: AppStyle.roboto14w400C000000,
                       ),
                     ],
                   ),
@@ -147,7 +185,7 @@ class AuthScreenState extends State<AuthScreen> {
                       },
                       child: Text(
                         AppStrings.signIn,
-                        style: AppTextStyles.inter16w700White,
+                        style: AppStyle.inter16w700CFFFFFF,
                       ),
                     ),
                   ),
@@ -160,7 +198,7 @@ class AuthScreenState extends State<AuthScreen> {
                     children: [
                       Text(
                         AppStrings.dontHaveAAccount,
-                        style: AppTextStyles.roboto14w400Black,
+                        style: AppStyle.roboto14w400C000000,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -176,11 +214,7 @@ class AuthScreenState extends State<AuthScreen> {
                                       2), // Adds space between text and underline
                               child: Text(
                                 AppStrings.signUp, // Your text
-                                style: GoogleFonts.roboto(
-                                  color: AppColors.yellowFFD673,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14.sp,
-                                ),
+                                style: AppStyle.roboto14w500CFFD673,
                               ),
                             ),
                             // The underline with custom gap
@@ -205,7 +239,7 @@ class AuthScreenState extends State<AuthScreen> {
 
                   Text(
                     AppStrings.or,
-                    style: AppTextStyles.roboto14w500Black,
+                    style: AppStyle.roboto14w500C80000000,
                   ),
 
                   Gap(31.h),
@@ -253,9 +287,8 @@ class AuthScreenState extends State<AuthScreen> {
           children: [
             Text(
               title,
-              style: GoogleFonts.inter(
-                fontWeight: selected ? FontWeight.w800 : FontWeight.w700,
-                fontSize: 16.sp,
+              style: AppStyle.inter16w700C80000000.copyWith(
+                fontWeight: fontWeight,
                 color: color,
               ),
             ),
@@ -290,10 +323,10 @@ class AuthScreenState extends State<AuthScreen> {
         floatingLabelBehavior:
             FloatingLabelBehavior.always, // Keeps label inside the border
 
-        labelStyle: AppTextStyles.roboto14w500Black,
+        labelStyle: AppStyle.roboto14w500C000000,
         hintText: hintText,
 
-        hintStyle: AppTextStyles.roboto14w400Black50opacity,
+        hintStyle: AppStyle.roboto14w400C80000000,
         suffixIcon: GestureDetector(
           onTap: onSuffixIconTap,
           child: suffixIconSvg == null

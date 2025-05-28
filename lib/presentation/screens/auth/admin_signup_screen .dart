@@ -10,6 +10,7 @@ import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
+import '../../widgets/custom_text_form_field/custom_text_form.dart';
 
 class AdminSignUpScreen extends StatefulWidget {
   const AdminSignUpScreen({super.key});
@@ -55,7 +56,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   Gap(16.h),
                   Text(
                     AppStrings.adminSignUp,
-                    style: AppTextStyles.kohSantepheap18w700Yellow,
+                    style: AppStyle.kohSantepheap18w700CFFD673,
                   ),
                   Gap(24.h),
                   // Tab bar for Employee/Admin
@@ -69,26 +70,74 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   Gap(42.h),
 
                   // Email TextField with shadow
-                  _buildTextField(
+                  // _buildTextField(
+                  //   controller: fullNameController,
+                  //   labelText: AppStrings.fullName,
+                  //   hintText: AppStrings.enterYourFullName,
+                  //   suffixIconSvg: Assets.icons.fullName,
+                  //   obscureText: false,
+                  // ),
+                  // Gap(35.h),
+                  // _buildTextField(
+                  //   controller: emailController,
+                  //   labelText: AppStrings.email,
+                  //   hintText: AppStrings.enterYourEmailHint,
+                  //   suffixIcon: Icons.email_outlined,
+                  //   obscureText: false,
+                  // ),
+                  // Gap(35.h),
+                  // _buildTextField(
+                  //   controller: passwordController,
+                  //   labelText: AppStrings.password,
+                  //   hintText: AppStrings.passwordHint,
+                  //   suffixIcon: passwordVisible
+                  //       ? Icons.visibility_outlined
+                  //       : Icons.visibility_off_outlined,
+                  //   obscureText: !passwordVisible,
+                  //   onSuffixIconTap: () {
+                  //     setState(() {
+                  //       passwordVisible = !passwordVisible;
+                  //     });
+                  //   },
+                  // ),
+                  Gap(36.h),
+                  CustomTextFormField(
                     controller: fullNameController,
                     labelText: AppStrings.fullName,
                     hintText: AppStrings.enterYourFullName,
-                    suffixIconSvg: Assets.icons.fullName,
+                    suffixIconSvgAsset: Assets.icons.fullName
+                        .path, // make sure it's a string path to SVG asset
                     obscureText: false,
+                    style: AppStyle.roboto14w400C80000000,
+                    labelStyle: AppStyle.roboto14w500C000000,
+                    enabledBorderColor: AppColors.black30opacity4D000000,
+                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    fillColor: Colors.white,
+                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
                   ),
+
                   Gap(35.h),
-                  _buildTextField(
+
+                  CustomTextFormField(
                     controller: emailController,
-                    labelText: 'Email',
-                    hintText: 'Enter your email',
+                    labelText: AppStrings.email,
+                    hintText: AppStrings.enterYourEmailHint,
                     suffixIcon: Icons.email_outlined,
                     obscureText: false,
+                    style: AppStyle.roboto14w400C80000000,
+                    labelStyle: AppStyle.roboto14w500C000000,
+                    enabledBorderColor: AppColors.black30opacity4D000000,
+                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    fillColor: Colors.white,
+                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
                   ),
+
                   Gap(35.h),
-                  _buildTextField(
+
+                  CustomTextFormField(
                     controller: passwordController,
-                    labelText: 'Password',
-                    hintText: '********',
+                    labelText: AppStrings.password,
+                    hintText: AppStrings.passwordHint,
                     suffixIcon: passwordVisible
                         ? Icons.visibility_outlined
                         : Icons.visibility_off_outlined,
@@ -98,8 +147,13 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                         passwordVisible = !passwordVisible;
                       });
                     },
+                    style: AppStyle.roboto14w400C80000000,
+                    labelStyle: AppStyle.roboto14w500C000000,
+                    enabledBorderColor: AppColors.black30opacity4D000000,
+                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    fillColor: Colors.white,
+                    contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 14),
                   ),
-                  Gap(36.h),
 
                   // Remember Me checkbox
                   Row(
@@ -115,7 +169,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                       ),
                       Text(
                         AppStrings.rememberMe,
-                        style: AppTextStyles.roboto14w400Black,
+                        style: AppStyle.roboto14w400C000000,
                       ),
                     ],
                   ),
@@ -139,7 +193,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                       },
                       child: Text(
                         AppStrings.signUp,
-                        style: AppTextStyles.inter16w700White,
+                        style: AppStyle.inter16w700CFFFFFF,
                       ),
                     ),
                   ),
@@ -152,11 +206,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     children: [
                       Text(
                         AppStrings.dontHaveAAccount,
-                        style: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14.sp,
-                        ),
+                        style: AppStyle.roboto14w400C000000,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -174,7 +224,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                               child: Text(
                                 AppStrings.signIn, // Your text
 
-                                style: AppTextStyles.roboto14w500Yellow,
+                                style: AppStyle.roboto14w500CFFD673,
                               ),
                             ),
                             // The underline with custom gap
@@ -199,7 +249,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
 
                   Text(
                     AppStrings.or,
-                    style: AppTextStyles.roboto14w500Black,
+                    style: AppStyle.roboto14w500C80000000,
                   ),
 
                   Gap(12.h),
@@ -284,10 +334,10 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
         floatingLabelBehavior:
             FloatingLabelBehavior.always, // Keeps label inside the border
 
-        labelStyle: AppTextStyles.roboto14w500Black,
+        labelStyle: AppStyle.roboto14w500C000000,
         hintText: hintText,
 
-        hintStyle: AppTextStyles.roboto14w400Black50opacity,
+        hintStyle: AppStyle.roboto14w400C80000000,
         suffixIcon: GestureDetector(
           onTap: onSuffixIconTap,
           child: suffixIconSvg == null
