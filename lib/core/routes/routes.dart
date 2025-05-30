@@ -14,6 +14,7 @@ import 'package:groc_shopy/presentation/screens/auth/verify_code_screen.dart';
 import 'package:groc_shopy/presentation/screens/home/home_screen.dart';
 import 'package:groc_shopy/presentation/screens/scan/scan_screen.dart';
 import 'package:groc_shopy/presentation/screens/transaction_history/transaction_history_screen.dart';
+import 'package:groc_shopy/presentation/widgets/payment_modal/payment_modal.dart';
 import 'package:groc_shopy/presentation/widgets/subscription_modal/subscription_modal.dart';
 
 import '../../presentation/screens/report/report_screen.dart';
@@ -25,6 +26,7 @@ import 'route_path.dart';
 class AppRouter {
   static final GoRouter initRoute = GoRouter(
       initialLocation: RoutePath.splashScreen.addBasePath,
+      // initialLocation: RoutePath.paymentModal.addBasePath,
       // initialLocation: RoutePath.subscription.addBasePath,
       // initialLocation: RoutePath.home.addBasePath,
       // initialLocation: RoutePath.main.addBasePath,
@@ -40,6 +42,10 @@ class AppRouter {
             name: RoutePath.subscription,
             path: RoutePath.subscription.addBasePath,
             builder: (context, state) => const SubscriptionModal()),
+        GoRoute(
+            name: RoutePath.paymentModal,
+            path: RoutePath.paymentModal.addBasePath,
+            builder: (context, state) => const PaymentModal()),
         GoRoute(
           name: RoutePath.splashScreen,
           path: RoutePath.splashScreen.addBasePath,

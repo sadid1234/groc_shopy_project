@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/text_style/text_style.dart';
-
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
 import '../../../utils/app_colors/app_colors.dart';
 import '../../../utils/static_strings/static_strings.dart';
+import '../../widgets/custom_bottons/custom_button/app_button.dart';
 import '../../widgets/custom_text_form_field/custom_text_form.dart';
 
 class CodeVerificationScreen extends StatefulWidget {
@@ -63,13 +62,6 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
   void _verifyCode() {
     final code = controllers.map((c) => c.text).join();
     context.push(RoutePath.resetPassConfirm.addBasePath);
-  }
-
-  void _resendEmail() {
-    // Handle resend email logic here
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Resend email clicked')),
-    );
   }
 
   @override
@@ -135,36 +127,6 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                   return Container(
                     width: 56.w,
                     height: 56.h,
-                    // child: TextField(
-                    //   controller: controllers[index],
-                    //   focusNode: focusNodes[index],
-                    //   keyboardType: TextInputType.number,
-                    //   textAlign: TextAlign.center,
-                    //   textAlignVertical: TextAlignVertical.center,
-                    //   maxLength: 1,
-                    //   style: AppStyle.poppins18w600C545454,
-                    //   decoration: InputDecoration(
-                    //     isDense: true,
-                    //     contentPadding: EdgeInsets.symmetric(vertical: 45.h),
-                    //     counterText: '',
-                    //     enabledBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(8),
-                    //       borderSide: BorderSide(
-                    //           color: controllers[index].text.isEmpty
-                    //               ? AppColors.borderE1E1E1
-                    //               : AppColors.yellowFFD673,
-                    //           width: 3),
-                    //     ),
-                    //     focusedBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(8),
-                    //       borderSide: const BorderSide(
-                    //         color: AppColors.yellowFFD673,
-                    //         width: 3,
-                    //       ),
-                    //     ),
-                    //   ),
-                    //   onChanged: (value) => _onCodeChanged(index, value),
-                    // ),
                     child: CustomTextFormField(
                       controller: controllers[index],
                       focusNode: focusNodes[index],
@@ -190,27 +152,18 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
               ),
 
               Gap(24.h),
-              SizedBox(
+
+              AppButton(
+                text: AppStrings.verifyCode,
+                onPressed: isCodeComplete ? _verifyCode : null,
                 width: double.infinity,
                 height: 48,
-                child: ElevatedButton(
-                  onPressed: isCodeComplete ? _verifyCode : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: isCodeComplete
-                        ? AppColors.yellowFFD673
-                        : AppColors.yellowFFD673.withOpacity(0.4),
-                    disabledBackgroundColor:
-                        AppColors.yellowFFD673.withOpacity(0.4),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: Text(
-                    AppStrings.verifyCode,
-                    style: AppStyle.inter16w700CFFFFFF,
-                  ),
-                ),
+                backgroundColor: AppColors.yellowFFD673,
+                disabledBackgroundColor:
+                    AppColors.yellowFFD673.withOpacity(0.4),
+                borderRadius: 10,
+                textStyle: AppStyle.inter16w700CFFFFFF,
+                enabled: isCodeComplete,
               ),
 
               Gap(16.h),

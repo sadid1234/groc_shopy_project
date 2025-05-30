@@ -6,6 +6,7 @@ class CustomTextFormField extends StatefulWidget {
   final String? labelText;
   final String? hintText;
   final IconData? suffixIcon;
+  final Widget? prefix;
   final String? suffixIconSvgAsset;
   final bool obscureText;
   final VoidCallback? onSuffixIconTap;
@@ -32,6 +33,7 @@ class CustomTextFormField extends StatefulWidget {
     Key? key,
     required this.controller,
     this.onChanged,
+    this.prefix,
     this.labelText,
     this.hintText,
     this.suffixIcon,
@@ -123,6 +125,15 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         suffixIcon: suffixIconWidget,
         // suffixIconConstraints:
         //     const BoxConstraints(minWidth: 0, minHeight: 0, maxHeight: 60),
+        prefixIconConstraints: widget.prefix != null
+            ? const BoxConstraints(minWidth: 50, minHeight: 30)
+            : null,
+        prefixIcon: widget.prefix != null
+            ? Padding(
+                padding: const EdgeInsets.only(left: 12, right: 8),
+                child: widget.prefix,
+              )
+            : null,
         filled: widget.filled,
         fillColor: widget.fillColor,
         contentPadding: widget.contentPadding,

@@ -89,7 +89,7 @@ class AppStrings {
   static const String paymentMethod = "Payment Method";
   static const String paymentMethodHint = "MasterCard 13345***44";
   static const String payWithApplePayAndGetOffers =
-      "Pay with Apple pay and get offers \n and discount in your next purchase";
+      "Pay with Apple pay and get offers and discount in your next purchase";
   static const String pay = "Pay";
   static const String payNow = "Pay now";
 

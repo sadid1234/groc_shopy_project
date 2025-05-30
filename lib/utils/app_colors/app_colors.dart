@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:groc_shopy/presentation/widgets/subscription_modal/subscription_modal.dart';
 
 class AppColors {
   static const black000000 = Color(0xFF000000);

@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 import 'package:groc_shopy/utils/text_style/text_style.dart';
+import '../custom_bottons/custom_button/app_button.dart';
 
 class SubscriptionModal extends StatelessWidget {
   const SubscriptionModal({super.key});
@@ -78,25 +79,17 @@ class SubscriptionModal extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     Gap(20.h),
-                    SizedBox(
+                    AppButton(
+                      text: AppStrings.subscribe,
+                      onPressed: () {
+                        // Handle subscribe logic
+                      },
                       width: double.infinity,
                       height: 48.h,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.yellowFFD673,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(24.r),
-                          ),
-                        ),
-                        onPressed: () {
-                          // Handle subscribe logic
-                        },
-                        child: Text(
-                          AppStrings.subscribe,
-                          style: AppStyle.inter16w500White,
-                        ),
-                      ),
-                    ),
+                      backgroundColor: AppColors.yellowFFD673,
+                      borderRadius: 24.r,
+                      textStyle: AppStyle.inter16w500White,
+                    )
                   ],
                 ),
               ),

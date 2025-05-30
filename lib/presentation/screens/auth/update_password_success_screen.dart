@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
-import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 import 'package:groc_shopy/utils/text_style/text_style.dart';
-
 import '../../../core/routes/route_path.dart';
+import '../../widgets/custom_bottons/custom_button/app_button.dart';
 
 class UpdatePasswordSuccessScreen extends StatelessWidget {
   @override
@@ -61,25 +59,16 @@ class UpdatePasswordSuccessScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     Gap(33.h),
-                    SizedBox(
+                    AppButton(
+                      text: AppStrings.updatePassword,
+                      onPressed: () {
+                        context.push(RoutePath.auth.addBasePath);
+                      },
                       width: 268.w,
                       height: 44.h,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          context.push(RoutePath.auth.addBasePath);
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFF7C95C), // yellow
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          elevation: 0,
-                        ),
-                        child: Text(
-                          AppStrings.updatePassword,
-                          style: AppStyle.inter16w700CFFFFFF,
-                        ),
-                      ),
+                      backgroundColor: const Color(0xFFF7C95C),
+                      borderRadius: 15,
+                      textStyle: AppStyle.inter16w700CFFFFFF,
                     )
                   ],
                 ),

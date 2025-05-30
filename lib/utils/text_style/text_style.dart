@@ -387,4 +387,10 @@ class AppStyle {
     fontWeight: FontWeight.w500,
     height: 1,
   );
+  static final TextStyle kohSantepheap20w400C000000 = GoogleFonts.kohSantepheap(
+    color: Colors.black,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w400,
+    height: 1.10,
+  );
 }

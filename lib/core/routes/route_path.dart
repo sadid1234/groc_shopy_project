@@ -32,6 +32,7 @@ class RoutePath {
   static const String scannedItemsScreen = 'scannedItemsScreen';
   static const String transactionHistory = 'transactionHistory';
   static const String report = 'report';
+  static const String paymentModal = 'paymentModal';
 
   //==================================== Client screens =====================================
   static const String clientHome = 'clientHome';

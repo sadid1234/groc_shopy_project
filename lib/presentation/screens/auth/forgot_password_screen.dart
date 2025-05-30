@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
-
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
 import '../../../utils/text_style/text_style.dart';
+import '../../widgets/custom_bottons/custom_button/app_button.dart';
 import '../../widgets/custom_text_form_field/custom_text_form.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -76,34 +75,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 style: AppStyle.roboto16w600C2A2A2A,
               ),
               const SizedBox(height: 8),
-              // TextField(
-              //   style: AppStyle.roboto16w500C545454,
-              //   controller: emailController,
-              //   keyboardType: TextInputType.emailAddress,
-              //   decoration: InputDecoration(
-              //     filled: true,
-              //     fillColor: AppColors.lightGreyTextB3B3B3,
-              //     hintText: AppStrings.enterYourEmailHint,
-              //     hintStyle: AppStyle.roboto14w500CB3B3B3,
-              //     contentPadding:
-              //         const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-              //     border: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12.dg),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
-              //     ),
-              //     enabledBorder: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
-              //     ),
-              //     focusedBorder: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12.dg),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.8.w),
-              //     ),
-              //   ),
-              // ),
               CustomTextFormField(
                 controller: emailController,
                 hintText: AppStrings.enterYourEmailHint,
@@ -122,32 +93,23 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 filled: true,
                 obscureText: false,
               ),
-
               Gap(30.h),
-              SizedBox(
+              AppButton(
+                text: 'Reset Password',
+                onPressed: isButtonEnabled
+                    ? () {
+                        context.push(RoutePath.verification.addBasePath);
+                      }
+                    : null,
                 width: double.infinity,
                 height: 48.h,
-                child: ElevatedButton(
-                  onPressed: isButtonEnabled
-                      ? () {
-                          context.push(RoutePath.verification.addBasePath);
-                        }
-                      : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.yellowFFD673,
-                    disabledBackgroundColor:
-                        AppColors.yellowFFD673.withOpacity(0.4),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: Text(
-                    'Reset Password',
-                    style: AppStyle.inter16w700CFFFFFF,
-                  ),
-                ),
-              ),
+                backgroundColor: AppColors.yellowFFD673,
+                disabledBackgroundColor:
+                    AppColors.yellowFFD673.withOpacity(0.4),
+                borderRadius: 10,
+                textStyle: AppStyle.inter16w700CFFFFFF,
+                enabled: isButtonEnabled,
+              )
             ],
           ),
         ),

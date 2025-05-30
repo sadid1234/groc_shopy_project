@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 import 'package:groc_shopy/utils/text_style/text_style.dart';
-
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
 import '../../../utils/static_strings/static_strings.dart';
+import '../../widgets/custom_bottons/custom_button/app_button.dart';
 import '../../widgets/custom_text_form_field/custom_text_form.dart';
 
 class SetPasswordScreen extends StatefulWidget {
@@ -86,80 +85,6 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
                 style: AppStyle.roboto16w600C2A2A2A,
               ),
               Gap(8.h),
-              // TextField(
-              //   style: AppStyle.roboto16w500C545454,
-              //   controller: _passwordController,
-              //   obscureText: _obscurePassword,
-              //   decoration: InputDecoration(
-              //     hintText: AppStrings.enterYourNewPassword,
-              //     hintStyle: AppStyle.roboto14w500CB3B3B3,
-              //     contentPadding:
-              //         const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              //     // border: inputBorder,
-              //     border: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12.dg),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
-              //     ),
-              //     enabledBorder: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
-              //     ),
-              //     focusedBorder: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12.dg),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.8.w),
-              //     ),
-              //     suffixIcon: IconButton(
-              //       icon: Icon(_obscurePassword
-              //           ? Icons.visibility_off_outlined
-              //           : Icons.visibility_outlined),
-              //       onPressed: _togglePasswordVisibility,
-              //     ),
-              //   ),
-              // ),
-              // Gap(16.h),
-              // // Confirm Password Field
-              // Text(
-              //   AppStrings.confirmPasswordHint,
-              //   style: AppStyle.roboto16w600C2A2A2A,
-              // ),
-              // Gap(8.h),
-              // TextField(
-              //   style: AppStyle.roboto16w500C545454,
-              //   controller: _confirmPasswordController,
-              //   obscureText: _obscureConfirmPassword,
-              //   decoration: InputDecoration(
-              //     hintText: AppStrings.reEnterPassword,
-              //     hintStyle: AppStyle.roboto14w500CB3B3B3,
-              //     contentPadding:
-              //         const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              //     border: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12.dg),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
-              //     ),
-              //     enabledBorder: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.5.w),
-              //     ),
-              //     focusedBorder: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(12.dg),
-              //       borderSide:
-              //           BorderSide(color: AppColors.borderE1E1E1, width: 1.8.w),
-              //     ),
-              //     suffixIcon: IconButton(
-              //       icon: Icon(
-              //         _obscureConfirmPassword
-              //             ? Icons.visibility_off_outlined
-              //             : Icons.visibility_outlined,
-              //       ),
-              //       onPressed: _toggleConfirmPasswordVisibility,
-              //     ),
-              //   ),
-              // ),
               CustomTextFormField(
                 controller: _passwordController,
                 hintText: AppStrings.enterYourNewPassword,
@@ -208,26 +133,17 @@ class _SetPasswordScreenState extends State<SetPasswordScreen> {
               ),
 
               Gap(30.h),
-              // Update Password Button
-              SizedBox(
+
+              AppButton(
+                text: AppStrings.updatePassword,
+                onPressed: () {
+                  context.push(RoutePath.resetPasswordSuccess.addBasePath);
+                },
                 width: double.infinity,
                 height: 48.h,
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.push(RoutePath.resetPasswordSuccess.addBasePath);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFF7C95C), // yellow
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: Text(
-                    AppStrings.updatePassword,
-                    style: AppStyle.inter16w700CFFFFFF,
-                  ),
-                ),
+                backgroundColor: const Color(0xFFF7C95C),
+                borderRadius: 8,
+                textStyle: AppStyle.inter16w700CFFFFFF,
               )
             ],
           ),

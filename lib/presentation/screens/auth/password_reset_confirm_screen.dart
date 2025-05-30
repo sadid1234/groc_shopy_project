@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/core/routes/route_path.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/custom_assets/assets.gen.dart';
+import '../../widgets/custom_bottons/custom_button/app_button.dart';
 
 class PasswordResetConfirmScreen extends StatelessWidget {
   const PasswordResetConfirmScreen({super.key});
@@ -42,25 +42,16 @@ class PasswordResetConfirmScreen extends StatelessWidget {
                 style: AppStyle.roboto14w500C989898,
               ),
               Gap(32.h),
-              SizedBox(
+              AppButton(
+                text: AppStrings.confirm,
+                onPressed: () {
+                  context.push(RoutePath.resetPass.addBasePath);
+                },
                 width: double.infinity,
                 height: 48.h,
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.push(RoutePath.resetPass.addBasePath);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFF7C95C), // yellow
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: Text(
-                    AppStrings.confirm,
-                    style: AppStyle.inter16w700CFFFFFF,
-                  ),
-                ),
+                backgroundColor: const Color(0xFFF7C95C),
+                borderRadius: 8,
+                textStyle: AppStyle.inter16w700CFFFFFF,
               )
             ],
           ),

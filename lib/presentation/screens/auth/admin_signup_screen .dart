@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 import 'package:groc_shopy/utils/text_style/text_style.dart';
-
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../core/routes/route_path.dart';
+import '../../widgets/custom_bottons/custom_button/app_button.dart';
 import '../../widgets/custom_text_form_field/custom_text_form.dart';
 
 class AdminSignUpScreen extends StatefulWidget {
@@ -69,37 +68,6 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   ),
                   Gap(42.h),
 
-                  // Email TextField with shadow
-                  // _buildTextField(
-                  //   controller: fullNameController,
-                  //   labelText: AppStrings.fullName,
-                  //   hintText: AppStrings.enterYourFullName,
-                  //   suffixIconSvg: Assets.icons.fullName,
-                  //   obscureText: false,
-                  // ),
-                  // Gap(35.h),
-                  // _buildTextField(
-                  //   controller: emailController,
-                  //   labelText: AppStrings.email,
-                  //   hintText: AppStrings.enterYourEmailHint,
-                  //   suffixIcon: Icons.email_outlined,
-                  //   obscureText: false,
-                  // ),
-                  // Gap(35.h),
-                  // _buildTextField(
-                  //   controller: passwordController,
-                  //   labelText: AppStrings.password,
-                  //   hintText: AppStrings.passwordHint,
-                  //   suffixIcon: passwordVisible
-                  //       ? Icons.visibility_outlined
-                  //       : Icons.visibility_off_outlined,
-                  //   obscureText: !passwordVisible,
-                  //   onSuffixIconTap: () {
-                  //     setState(() {
-                  //       passwordVisible = !passwordVisible;
-                  //     });
-                  //   },
-                  // ),
                   Gap(36.h),
                   CustomTextFormField(
                     controller: fullNameController,
@@ -175,26 +143,16 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
 
                   Gap(33.h),
 
-                  // Sign in button
-                  SizedBox(
+                  AppButton(
+                    text: AppStrings.signUp,
+                    onPressed: () {
+                      // Handle sign in logic here
+                    },
                     width: double.infinity,
                     height: 48.h,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.yellowFFD673,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        elevation: 0,
-                      ),
-                      onPressed: () {
-                        // Handle sign in logic here
-                      },
-                      child: Text(
-                        AppStrings.signUp,
-                        style: AppStyle.inter16w700CFFFFFF,
-                      ),
-                    ),
+                    backgroundColor: AppColors.yellowFFD673,
+                    borderRadius: 8,
+                    textStyle: AppStyle.inter16w700CFFFFFF,
                   ),
 
                   Gap(15.h),
@@ -276,100 +234,6 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildRoleTab(String title, bool selected, VoidCallback onTap) {
-    final color =
-        selected ? AppColors.yellowFFD673 : AppColors.black50opacity80000000;
-    final fontWeight = selected ? FontWeight.bold : FontWeight.normal;
-
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 8),
-        width: 175.w, // fixed width to align underline and text nicely
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              title,
-              style: GoogleFonts.inter(
-                fontWeight: selected ? FontWeight.w800 : FontWeight.w700,
-                fontSize: 16.sp,
-                color: color,
-              ),
-            ),
-            Gap(12.h),
-            Container(
-              height: selected ? 4.h : 1.h,
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(3),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String labelText,
-    required String hintText,
-    IconData? suffixIcon,
-    SvgGenImage? suffixIconSvg,
-    required bool obscureText,
-    VoidCallback? onSuffixIconTap,
-  }) {
-    return TextField(
-      controller: controller,
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        labelText: labelText,
-        floatingLabelBehavior:
-            FloatingLabelBehavior.always, // Keeps label inside the border
-
-        labelStyle: AppStyle.roboto14w500C000000,
-        hintText: hintText,
-
-        hintStyle: AppStyle.roboto14w400C80000000,
-        suffixIcon: GestureDetector(
-          onTap: onSuffixIconTap,
-          child: suffixIconSvg == null
-              ? Icon(
-                  suffixIcon,
-                  color: AppColors.black50opacity80000000,
-                  size: 17.h,
-                )
-              : suffixIconSvg.svg(
-                  color: AppColors.black50opacity80000000,
-                  height: 17.h,
-                  width: 17.h,
-                  fit: BoxFit.scaleDown,
-                ),
-        ),
-        filled: true,
-        fillColor: Colors.white,
-        contentPadding:
-            EdgeInsets.fromLTRB(16, 20, 16, 14), // Adjusted padding for label
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.dg),
-          borderSide:
-              BorderSide(color: AppColors.black30opacity4D000000, width: 1.5.w),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide:
-              BorderSide(color: AppColors.black30opacity4D000000, width: 1.5.w),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.dg),
-          borderSide:
-              BorderSide(color: AppColors.darkGrayText3F3F3F, width: 1.8.w),
         ),
       ),
     );
