@@ -39,8 +39,11 @@ class AppStrings {
   static const String recentPurchases = 'Recent Purchases';
   static const String createANewPassword =
       'Create a new password. Ensure it differs from\nprevious ones for security';
+  static const String youEmail = "You Email";
   static const String enterYourFullName = "Enter your full name";
   static const String enterYourNewPassword = "Enter your new password";
+  static const String pleaseEnterYourEmailToReset =
+      "Please enter your email to reset the password";
   static const String weSent = 'We sent a reset link to ';
   static const String checkYourEmail = 'Check your email';
   static const String haveNotGotTheMail = "Haven’t got the email yet? ";
