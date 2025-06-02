@@ -331,7 +331,8 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     hintText: AppStrings.enterYourFullName.tr, // <-- .tr
                     suffixIconSvgAsset: Assets.icons.fullName.path,
                     obscureText: false,
-                    style: AppStyle.roboto14w400C80000000,
+                    hintStyle: AppStyle.roboto14w500CB3B3B3,
+                    style: AppStyle.roboto16w500C545454,
                     labelStyle: AppStyle.roboto14w500C000000,
                     enabledBorderColor: AppColors.black30opacity4D000000,
                     focusedBorderColor: AppColors.darkGrayText3F3F3F,
@@ -345,7 +346,8 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     hintText: AppStrings.enterYourEmailHint.tr, // <-- .tr
                     suffixIcon: Icons.email_outlined,
                     obscureText: false,
-                    style: AppStyle.roboto14w400C80000000,
+                    hintStyle: AppStyle.roboto14w500CB3B3B3,
+                    style: AppStyle.roboto16w500C545454,
                     labelStyle: AppStyle.roboto14w500C000000,
                     enabledBorderColor: AppColors.black30opacity4D000000,
                     focusedBorderColor: AppColors.darkGrayText3F3F3F,
@@ -366,7 +368,8 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                         passwordVisible = !passwordVisible;
                       });
                     },
-                    style: AppStyle.roboto14w400C80000000,
+                    hintStyle: AppStyle.roboto14w500CB3B3B3,
+                    style: AppStyle.roboto16w500C545454,
                     labelStyle: AppStyle.roboto14w500C000000,
                     enabledBorderColor: AppColors.black30opacity4D000000,
                     focusedBorderColor: AppColors.darkGrayText3F3F3F,

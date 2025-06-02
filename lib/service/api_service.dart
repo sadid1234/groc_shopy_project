@@ -218,12 +218,13 @@ class ApiClient {
     }
   }
 
-  Future<Response> patch(
-      {required String url,
-      bool isBasic = false,
-      Map<String, dynamic>? body,
-      int duration = 30,
-      bool showResult = false}) async {
+  Future<Response> patch({
+    required String url,
+    bool isBasic = false,
+    Map<String, dynamic>? body,
+    int duration = 30,
+    bool showResult = false,
+  }) async {
     try {
       /// ======================- Check Internet ===================
 
@@ -303,13 +304,14 @@ class ApiClient {
   }
 
   // Param get method
-  Future<Map<String, dynamic>?> paramGet(
-      {String? url,
-      bool? isBasic,
-      Map<String, String>? body,
-      int code = 200,
-      int duration = 15,
-      bool showResult = false}) async {
+  Future<Map<String, dynamic>?> paramGet({
+    String? url,
+    bool? isBasic,
+    Map<String, String>? body,
+    int code = 200,
+    int duration = 15,
+    bool showResult = false,
+  }) async {
     log.i(
         '|Get param📍📍📍|----------------- [[ GET ]] param method Details Start -----------------|📍📍📍|');
 
@@ -382,13 +384,14 @@ class ApiClient {
   }
 
   /// ========================= MaltiPart Request =====================
-  Future<Response> multipartRequest(
-      {required String url,
-      required String reqType,
-      bool isBasic = false,
-      Map<String, String>? body,
-      required List<MultipartBody> multipartBody,
-      bool showResult = true}) async {
+  Future<Response> multipartRequest({
+    required String url,
+    required String reqType,
+    bool isBasic = false,
+    Map<String, String>? body,
+    required List<MultipartBody> multipartBody,
+    bool showResult = true,
+  }) async {
     try {
       /// ======================- Check Internet ===================
 

@@ -504,7 +504,7 @@ class UpgradeBanner extends StatelessWidget {
             style: AppStyle.roboto11w400CFFFFFF,
           ),
           AppButton(
-            width: 142.w,
+            width: 155.w,
             height: 32.h,
             backgroundColor: Colors.white,
             borderRadius: 20,

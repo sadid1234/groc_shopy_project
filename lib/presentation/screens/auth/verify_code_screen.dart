@@ -337,11 +337,11 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
               ),
 
               Gap(24.h),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(codeLength, (index) {
                   return Container(
+                    alignment: Alignment.center,
                     width: 56.w,
                     height: 56.h,
                     child: CustomTextFormField(
@@ -352,7 +352,8 @@ class _CodeVerificationScreenState extends State<CodeVerificationScreen> {
                       textAlignVertical: TextAlignVertical.center,
                       maxLength: 1,
                       style: AppStyle.poppins18w600C545454,
-                      contentPadding: EdgeInsets.symmetric(vertical: 45.h),
+                      // Remove large vertical padding to center text correctly:
+                      contentPadding: EdgeInsets.symmetric(vertical: 0),
                       borderRadius: BorderRadius.circular(8),
                       enabledBorderColor: controllers[index].text.isEmpty
                           ? AppColors.borderE1E1E1

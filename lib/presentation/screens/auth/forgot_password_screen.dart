@@ -205,7 +205,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
                 enabledBorderColor: AppColors.borderE1E1E1,
-                focusedBorderColor: AppColors.borderE1E1E1,
+                focusedBorderColor: AppColors.yellowFFD673,
                 enabledBorderWidth: 1.5.w,
                 focusedBorderWidth: 1.8.w,
                 borderRadius: BorderRadius.circular(12.dg),
