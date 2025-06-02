@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../helper/local_db/local_db.dart';
 import '../../../utils/app_const/app_const.dart';
-import '../arabic/german.dart';
+import '../german/german.dart';
 import '../eng/eng.dart';
 
 class Language extends Translations {

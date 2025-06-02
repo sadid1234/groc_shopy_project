@@ -88,7 +88,7 @@ class AppStrings {
   static const String unlockExclusivefeatures =
       'Unlock exclusive features and supercharge your dating experience.';
   static const String completeYourPurchase = "Complete your Purchase";
-  static const String upgradeFrom = 'Upgrade from \$9.99';
+  static const String upgradeNow = 'Upgrade Now';
   static const String paymentMethod = "Payment Method";
   static const String paymentMethodHint = "MasterCard 13345***44";
   static const String payWithApplePayAndGetOffers =
@@ -131,4 +131,13 @@ class AppStrings {
 
   ///====================== Report ========================
   static const String report = "Report";
+  static const cancel = 'cancel';
+  static const takeFirstStep = 'take_first_step';
+  static const monthlyPremiumPlan = 'monthly_premium_plan';
+  static const yearlyPremiumPlan = 'yearly_premium_plan';
+  static const moreScan = 'more_scan';
+  static const unlockMonthlyReport = 'unlock_monthly_report';
+  static const unlimitedScan = 'unlimited_scan';
+  static const unlockYearlyReport = 'unlock_yearly_report';
+  static const pricingInfo = 'pricing_info';
 }

@@ -80,7 +80,7 @@ Map<String, String> english = {
   AppStrings.unlockExclusivefeatures:
       'Unlock exclusive features and supercharge your dating experience.',
   AppStrings.completeYourPurchase: "Complete your Purchase",
-  AppStrings.upgradeFrom: 'Upgrade from \$9.99',
+  AppStrings.upgradeNow: 'Upgrade Now',
   AppStrings.paymentMethod: "Payment Method",
   AppStrings.paymentMethodHint: "MasterCard 13345***44",
   AppStrings.payWithApplePayAndGetOffers:
@@ -119,4 +119,15 @@ Map<String, String> english = {
 
   ///====================== Report ========================
   AppStrings.report: "Report",
+  AppStrings.cancel: 'Cancel',
+  AppStrings.takeFirstStep:
+      'Take the first step towards a healthier and happier life.',
+  AppStrings.monthlyPremiumPlan: 'Monthly Premium Plan',
+  AppStrings.yearlyPremiumPlan: 'Yearly Premium Plan',
+  AppStrings.moreScan: 'More Scan',
+  AppStrings.unlockMonthlyReport: 'Unlock Monthly Report',
+  AppStrings.unlimitedScan: 'Unlimited scan',
+  AppStrings.unlockYearlyReport: 'Unlock Yearly Report',
+  AppStrings.pricingInfo:
+      'You will be charged \$9.99 (monthly plan) or \$60.99 (annual plan, saving 60% with the yearly plan—just \$0.83/month—through your paypal account. You can cancel at any time if you\'re not satisfied.',
 };

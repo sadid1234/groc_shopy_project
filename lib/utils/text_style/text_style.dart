@@ -393,4 +393,34 @@ class AppStyle {
     fontWeight: FontWeight.w400,
     height: 1.10,
   );
+  static final kohSantepheap16w700C090A0A = GoogleFonts.kohSantepheap(
+    color: const Color(0xFF090A0A),
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w700,
+    height: 1.38,
+  );
+  static final roboto12w700CFFD673 = GoogleFonts.roboto(
+    color: const Color(0xFFFFD673),
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w700,
+    height: 2.83,
+  );
+  static final roboto16w500C090A0A = GoogleFonts.roboto(
+    color: const Color(0xFF090A0A),
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    height: 1.12,
+  );
+  static final roboto14w700CFFD673 = GoogleFonts.roboto(
+    color: const Color(0xFFFFD673),
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
+    height: 1.29,
+  );
+  static final roboto14w400C090A0A = GoogleFonts.roboto(
+    color: const Color(0xFF090A0A),
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    height: 1.29,
+  );
 }

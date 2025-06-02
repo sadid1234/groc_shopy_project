@@ -202,7 +202,7 @@ Map<String, String> german = {
   AppStrings.appleStorePay: "Apple Store Pay",
   AppStrings.unlockExclusivefeatures: "Exklusive Funktionen freischalten",
   AppStrings.completeYourPurchase: "Kauf abschließen",
-  AppStrings.upgradeFrom: "Upgrade ab \$9,99",
+  AppStrings.upgradeNow: 'Jetzt upgraden',
   AppStrings.paymentMethod: "Zahlungsmethode",
   AppStrings.paymentMethodHint: "MasterCard 13345***44",
   AppStrings.payWithApplePayAndGetOffers:
@@ -240,4 +240,16 @@ Map<String, String> german = {
 
   ///====================== Report ========================
   AppStrings.report: "Bericht",
+  AppStrings.cancel: 'Abbrechen',
+  AppStrings.takeFirstStep:
+      'Mach den ersten Schritt zu einem gesünderen Leben.',
+  AppStrings.monthlyPremiumPlan: 'Monatsabo Premium',
+  AppStrings.yearlyPremiumPlan: 'Jahresabo Premium',
+  AppStrings.moreScan: 'Mehr Scans',
+  AppStrings.unlockMonthlyReport: 'Monatsbericht freischalten',
+  AppStrings.unlimitedScan: 'Unbegrenzte Scans',
+  AppStrings.unlockYearlyReport: 'Jahresbericht freischalten',
+
+  AppStrings.pricingInfo:
+      '9,99 € pro Monat oder 60,99 € pro Jahr (60 % sparen). Bezahlung über PayPal. Jederzeit kündbar.',
 };
