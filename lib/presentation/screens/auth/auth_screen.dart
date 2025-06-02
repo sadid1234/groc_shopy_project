@@ -625,7 +625,7 @@ class AuthScreenState extends State<AuthScreen> {
                     style: AppStyle.roboto16w500C545454,
                     labelStyle: AppStyle.roboto14w500C000000,
                     enabledBorderColor: AppColors.black30opacity4D000000,
-                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    focusedBorderColor: AppColors.yellowFFD673,
                     fillColor: Colors.white,
                     contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),
@@ -633,7 +633,7 @@ class AuthScreenState extends State<AuthScreen> {
                   CustomTextFormField(
                     controller: passwordController,
                     labelText: AppStrings.password.tr,
-                    hintText: AppStrings.passwordHint.tr,
+                    hintText: AppStrings.password.tr,
                     suffixIcon: passwordVisible
                         ? Icons.visibility_outlined
                         : Icons.visibility_off_outlined,
@@ -647,7 +647,7 @@ class AuthScreenState extends State<AuthScreen> {
                     style: AppStyle.roboto16w500C545454,
                     labelStyle: AppStyle.roboto14w500C000000,
                     enabledBorderColor: AppColors.black30opacity4D000000,
-                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    focusedBorderColor: AppColors.yellowFFD673,
                     fillColor: Colors.white,
                     contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),

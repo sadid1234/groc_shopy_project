@@ -12,6 +12,8 @@ class RoutePath {
 
   //=================== Auth screens ===================
   static const String login = 'login';
+  static const String paypal = 'paypal';
+
   static const String forgotPass = 'forgotPass';
   static const String resetPassConfirm = 'resetPassConfirm';
   static const String resetPass = 'resetPass';

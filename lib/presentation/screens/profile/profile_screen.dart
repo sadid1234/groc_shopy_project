@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -11,8 +12,10 @@ import 'package:groc_shopy/utils/app_colors/app_colors.dart';
 import 'package:groc_shopy/utils/static_strings/static_strings.dart';
 import 'package:groc_shopy/utils/text_style/text_style.dart';
 
+import '../../../core/routes/route_path.dart';
 import '../../widgets/custom_bottons/custom_button/app_button.dart';
 import '../../widgets/payment_modal/payment_modal.dart';
+import '../../widgets/paypal/paypal.dart';
 import '../../widgets/subscription_plans/subscription_plans.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -89,6 +92,8 @@ class _ProfileScreenState extends State<ProfileScreen>
     _tabController.dispose();
     super.dispose();
   }
+
+// Inside your widget's build or a method:
 
   Future<void> _showPickOptionsDialog() async {
     showModalBottomSheet(
@@ -477,22 +482,60 @@ Widget _buildRoleTab(String title, bool selected, VoidCallback onTap) {
   );
 }
 
-// UpgradeBanner unchanged
 class UpgradeBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void _showSubscriptionPlansAndPay() {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        builder: (_) => SubscriptionPlansBottomSheet(
+          plans: [
+            SubscriptionPlan(
+              title: AppStrings.monthlyPremiumPlan,
+              price: '9.99',
+              features: [AppStrings.moreScan, AppStrings.unlockMonthlyReport],
+            ),
+            SubscriptionPlan(
+              title: AppStrings.yearlyPremiumPlan,
+              price: '60.99',
+              features: [
+                AppStrings.unlimitedScan,
+                AppStrings.unlockYearlyReport,
+              ],
+            ),
+          ],
+          onSubscribe: (selectedPlan) {
+            Navigator.of(context).pop(); // close bottom sheet first
+
+            // Then open PayPal page:
+            // Navigator.of(context).push(
+            //   MaterialPageRoute(
+            //     builder: (_) => PaypalPage(plan: selectedPlan),
+            //   ),
+            // );
+            context.goNamed(
+              RoutePath.paypal,
+              extra: selectedPlan,
+            );
+          },
+        ),
+      );
+    }
+
     return Container(
       alignment: Alignment.center,
       width: 349.w,
       height: 118.h,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
-        color: const Color(0xFFFCCB5E), // yellow background
+        color: const Color(0xFFFCCB5E),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             AppStrings.appName.tr,
@@ -510,38 +553,7 @@ class UpgradeBanner extends StatelessWidget {
             borderRadius: 20,
             text: AppStrings.upgradeNow.tr,
             textStyle: AppStyle.inter14w500C000000,
-            onPressed: () {
-              WidgetsBinding.instance.addPostFrameCallback((_) {
-                showModalBottomSheet(
-                  context: context,
-                  isScrollControlled: true,
-                  backgroundColor: Colors.transparent,
-                  builder: (_) => SubscriptionPlansBottomSheet(
-                    plans: [
-                      SubscriptionPlan(
-                        title: AppStrings.monthlyPremiumPlan,
-                        price: '€9.99',
-                        features: [
-                          AppStrings.moreScan,
-                          AppStrings.unlockMonthlyReport
-                        ],
-                      ),
-                      SubscriptionPlan(
-                        title: AppStrings.yearlyPremiumPlan,
-                        price: '€60.99',
-                        features: [
-                          AppStrings.unlimitedScan,
-                          AppStrings.unlockYearlyReport
-                        ],
-                      ),
-                    ],
-                    onSubscribe: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                );
-              });
-            },
+            onPressed: _showSubscriptionPlansAndPay,
           ),
         ],
       ),

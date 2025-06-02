@@ -73,12 +73,15 @@
 //   }
 
 //   void _toggleObscureText() {
-//     if (widget.onSuffixIconTap == null) {
+//     // If there's a custom tap handler, call it
+//     if (widget.onSuffixIconTap != null) {
+//       widget.onSuffixIconTap!();
+//     }
+//     // Otherwise, toggle the obscure text state if this field is for passwords
+//     else if (widget.obscureText) {
 //       setState(() {
 //         _obscureText = !_obscureText;
 //       });
-//     } else {
-//       widget.onSuffixIconTap!();
 //     }
 //   }
 
@@ -88,19 +91,32 @@
 
 //     Widget? suffixIconWidget;
 //     if (widget.suffixIconSvgAsset != null) {
-//       suffixIconWidget = Container(
-//         padding: EdgeInsets.all(15),
-//         child: SvgPicture.asset(
-//           widget.suffixIconSvgAsset!,
-//           color: Colors.black.withOpacity(0.5),
-//           fit: BoxFit.cover,
+//       suffixIconWidget = GestureDetector(
+//         onTap: _toggleObscureText,
+//         child: Container(
+//           width: 20,
+//           height: 20,
+//           padding: const EdgeInsets.all(4),
+//           child: SvgPicture.asset(
+//             widget.suffixIconSvgAsset!,
+//             color: Colors.black.withOpacity(0.5),
+//             fit: BoxFit.contain,
+//             width: 16,
+//             height: 16,
+//           ),
 //         ),
 //       );
 //     } else if (widget.suffixIcon != null) {
-//       suffixIconWidget = Icon(
-//         widget.suffixIcon,
-//         color: Colors.black.withOpacity(0.5),
-//         size: 17,
+//       suffixIconWidget = GestureDetector(
+//         onTap: _toggleObscureText,
+//         child: Icon(
+//           // Change the icon based on obscure state if this is a password field
+//           widget.obscureText
+//               ? (_obscureText ? Icons.visibility_off : Icons.visibility)
+//               : widget.suffixIcon,
+//           color: Colors.black.withOpacity(0.5),
+//           size: 17,
+//         ),
 //       );
 //     }
 
@@ -111,7 +127,7 @@
 //       keyboardType: widget.keyboardType,
 //       maxLength: widget.maxLength,
 //       textAlign: widget.textAlign,
-//       textAlignVertical: widget.textAlignVertical,
+//       textAlignVertical: widget.textAlignVertical ?? TextAlignVertical.center,
 //       focusNode: widget.focusNode,
 //       style: widget.style,
 //       decoration: InputDecoration(
@@ -123,20 +139,19 @@
 //         hintText: widget.hintText,
 //         hintStyle: widget.hintStyle,
 //         suffixIcon: suffixIconWidget,
-//         // suffixIconConstraints:
-//         //     const BoxConstraints(minWidth: 0, minHeight: 0, maxHeight: 60),
 //         prefixIconConstraints: widget.prefix != null
-//             ? const BoxConstraints(minWidth: 50, minHeight: 30)
+//             ? const BoxConstraints(minWidth: 40, minHeight: 40)
 //             : null,
 //         prefixIcon: widget.prefix != null
 //             ? Padding(
-//                 padding: const EdgeInsets.only(left: 12, right: 8),
+//                 padding: const EdgeInsets.symmetric(horizontal: 8),
 //                 child: widget.prefix,
 //               )
 //             : null,
 //         filled: widget.filled,
 //         fillColor: widget.fillColor,
-//         contentPadding: widget.contentPadding,
+//         contentPadding: widget.contentPadding ??
+//             const EdgeInsets.symmetric(vertical: 15, horizontal: 12),
 //         counterText: widget.showCounter ? null : '',
 //         border: OutlineInputBorder(
 //           borderRadius: borderRadius,
@@ -229,22 +244,11 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  late bool _obscureText;
-
-  @override
-  void initState() {
-    super.initState();
-    _obscureText = widget.obscureText;
-  }
-
   void _toggleObscureText() {
-    if (widget.onSuffixIconTap == null) {
-      setState(() {
-        _obscureText = !_obscureText;
-      });
-    } else {
+    if (widget.onSuffixIconTap != null) {
       widget.onSuffixIconTap!();
     }
+    // Removed internal toggle, now fully controlled outside
   }
 
   @override
@@ -256,11 +260,15 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       suffixIconWidget = GestureDetector(
         onTap: _toggleObscureText,
         child: Container(
-          padding: const EdgeInsets.all(8), // reduced padding here
+          width: 20,
+          height: 20,
+          padding: const EdgeInsets.all(4),
           child: SvgPicture.asset(
             widget.suffixIconSvgAsset!,
             color: Colors.black.withOpacity(0.5),
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
+            width: 16,
+            height: 16,
           ),
         ),
       );
@@ -268,7 +276,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       suffixIconWidget = GestureDetector(
         onTap: _toggleObscureText,
         child: Icon(
-          widget.suffixIcon,
+          widget.obscureText
+              ? (widget.obscureText
+                  ? Icons.visibility_off
+                  : Icons.visibility) // always use widget.obscureText here
+              : widget.suffixIcon,
           color: Colors.black.withOpacity(0.5),
           size: 17,
         ),
@@ -278,7 +290,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       onChanged: widget.onChanged,
       controller: widget.controller,
-      obscureText: _obscureText,
+      obscureText: widget.obscureText,
       keyboardType: widget.keyboardType,
       maxLength: widget.maxLength,
       textAlign: widget.textAlign,

@@ -285,6 +285,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
   final fullNameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   void dispose() {
@@ -292,6 +293,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
     emailController.dispose();
     passwordController.dispose();
     fullNameController.dispose();
+    confirmPasswordController.dispose();
   }
 
   @override
@@ -329,13 +331,14 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     controller: fullNameController,
                     labelText: AppStrings.fullName.tr, // <-- .tr
                     hintText: AppStrings.enterYourFullName.tr, // <-- .tr
-                    suffixIconSvgAsset: Assets.icons.fullName.path,
+                    // suffixIconSvgAsset: Assets.icons.fullName.path,
+                    suffixIcon: Icons.person_outline,
                     obscureText: false,
                     hintStyle: AppStyle.roboto14w500CB3B3B3,
                     style: AppStyle.roboto16w500C545454,
                     labelStyle: AppStyle.roboto14w500C000000,
                     enabledBorderColor: AppColors.black30opacity4D000000,
-                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    focusedBorderColor: AppColors.yellowFFD673,
                     fillColor: Colors.white,
                     contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),
@@ -350,7 +353,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     style: AppStyle.roboto16w500C545454,
                     labelStyle: AppStyle.roboto14w500C000000,
                     enabledBorderColor: AppColors.black30opacity4D000000,
-                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    focusedBorderColor: AppColors.yellowFFD673,
                     fillColor: Colors.white,
                     contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),
@@ -358,7 +361,7 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                   CustomTextFormField(
                     controller: passwordController,
                     labelText: AppStrings.password.tr, // <-- .tr
-                    hintText: AppStrings.passwordHint.tr, // <-- .tr
+                    hintText: AppStrings.password.tr, // <-- .tr
                     suffixIcon: passwordVisible
                         ? Icons.visibility_outlined
                         : Icons.visibility_off_outlined,
@@ -372,7 +375,29 @@ class AdminSignUpScreenState extends State<AdminSignUpScreen> {
                     style: AppStyle.roboto16w500C545454,
                     labelStyle: AppStyle.roboto14w500C000000,
                     enabledBorderColor: AppColors.black30opacity4D000000,
-                    focusedBorderColor: AppColors.darkGrayText3F3F3F,
+                    focusedBorderColor: AppColors.yellowFFD673,
+                    fillColor: Colors.white,
+                    contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
+                  ),
+                  Gap(35.h),
+                  CustomTextFormField(
+                    controller: confirmPasswordController,
+                    labelText: AppStrings.confirmPasswordHint.tr, // <-- .tr
+                    hintText: AppStrings.confirmPasswordHint.tr, // <-- .tr
+                    suffixIcon: passwordVisible
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                    obscureText: !passwordVisible,
+                    onSuffixIconTap: () {
+                      setState(() {
+                        passwordVisible = !passwordVisible;
+                      });
+                    },
+                    hintStyle: AppStyle.roboto14w500CB3B3B3,
+                    style: AppStyle.roboto16w500C545454,
+                    labelStyle: AppStyle.roboto14w500C000000,
+                    enabledBorderColor: AppColors.black30opacity4D000000,
+                    focusedBorderColor: AppColors.yellowFFD673,
                     fillColor: Colors.white,
                     contentPadding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 14.h),
                   ),

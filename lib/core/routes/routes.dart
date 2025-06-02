@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:groc_shopy/presentation/screens/main/main_screen.dart';
@@ -15,12 +16,14 @@ import 'package:groc_shopy/presentation/screens/home/home_screen.dart';
 import 'package:groc_shopy/presentation/screens/scan/scan_screen.dart';
 import 'package:groc_shopy/presentation/screens/transaction_history/transaction_history_screen.dart';
 import 'package:groc_shopy/presentation/widgets/payment_modal/payment_modal.dart';
+import 'package:groc_shopy/presentation/widgets/paypal/paypal.dart';
 import 'package:groc_shopy/presentation/widgets/subscription_modal/subscription_modal.dart';
 
 import '../../presentation/screens/report/report_screen.dart';
 import '../../presentation/screens/scannedItemsScreen/scanned_items_screen.dart';
 import '../../presentation/screens/splash_screen/splash_screen.dart';
 import '../../presentation/widgets/error_screen/error_screen.dart';
+import '../../presentation/widgets/subscription_plans/subscription_plans.dart';
 import 'route_path.dart';
 
 class AppRouter {
@@ -63,6 +66,19 @@ class AppRouter {
             name: RoutePath.errorScreen,
             path: RoutePath.errorScreen.addBasePath,
             builder: (context, state) => const ErrorPage()),
+        GoRoute(
+          name: RoutePath.paypal,
+          path: RoutePath.paypal.addBasePath,
+          builder: (context, state) {
+            final plan = state.extra as SubscriptionPlan?;
+            if (plan == null) {
+              return Scaffold(
+                body: Center(child: Text('No subscription plan provided')),
+              );
+            }
+            return PaypalPage(plan: plan);
+          },
+        ),
 
         ///======================= Auth Route =======================
         GoRoute(
