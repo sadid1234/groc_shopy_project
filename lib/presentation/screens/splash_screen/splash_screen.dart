@@ -124,7 +124,7 @@ class SplashScreen extends StatelessWidget {
               completedText: AppStrings.welcome.tr, // <-- add .tr
               initialIconPath: Assets.icons.forwardWhite.path,
               completedIconPath: Assets.icons.forwardBlack.path,
-              height: 80.h,
+              height: 70.w,
               width: double.infinity,
               activeColor: AppColors.yellowFFD673,
               inactiveColor: AppColors.whiteFFFFFF,

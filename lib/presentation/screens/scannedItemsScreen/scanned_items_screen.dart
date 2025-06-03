@@ -265,15 +265,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:get/get.dart'; // <-- for .tr
+import 'package:groc_shopy/core/routes/route_path.dart';
+import 'package:groc_shopy/helper/extension/base_extension.dart';
 import '../../../core/custom_assets/assets.gen.dart';
 import '../../../utils/app_colors/app_colors.dart';
 import '../../../utils/static_strings/static_strings.dart';
 import '../../../utils/text_style/text_style.dart';
 import 'package:gap/gap.dart';
 
+import '../../widgets/custom_navbar/navbar_controller.dart';
+
 class ScannedItemsScreen extends StatelessWidget {
   final File? image; // Add this
-
+  final BottomNavController controller = Get.find<BottomNavController>();
   ScannedItemsScreen({super.key, required this.image});
 
   final List<Map<String, dynamic>> scannedItems = [
@@ -325,6 +329,8 @@ class ScannedItemsScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        controller.selectedIndex(1);
+                        // context.pushReplacement(RoutePath.main.addBasePath);
                         context.pop();
                       },
                       child: Image.asset(

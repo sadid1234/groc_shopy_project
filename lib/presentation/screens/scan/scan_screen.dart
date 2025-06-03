@@ -283,14 +283,15 @@ class _ScanScreenState extends State<ScanScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      context.pop();
-                    },
-                    child: Image.asset(
-                      Assets.icons.arrowBackGrey.path,
-                    ),
-                  ),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     context.pop();
+                  //   },
+                  //   child: Image.asset(
+                  //     Assets.icons.arrowBackGrey.path,
+                  //   ),
+                  // ),
+                  SizedBox(),
                   Text(
                     AppStrings.scanner.tr,
                     style: AppStyle.kohSantepheap16w700C3F3F3F,

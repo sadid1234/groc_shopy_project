@@ -88,13 +88,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         Gap(12.w),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          spacing: 8.w,
                           children: [
                             Text(
                               'Alex Thomson',
                               style: AppStyle.kohSantepheap16w700C3F3F3F,
                             ),
                             Text(
-                              'Your grocery expenses at a glance',
+                              AppStrings.yourGroceryExpensesAtAGlance.tr,
                               style: AppStyle.roboto12w400C80000000,
                             ),
                           ],
@@ -206,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               '25 April, 2025',
                               style: AppStyle.roboto12w400C5A5A5A,
                             ),
-                            Gap(4.h),
+                            Gap(8.h),
                             Text(
                               AppStrings.monthlyReport.tr,
                               style: AppStyle.roboto16w400C000000,

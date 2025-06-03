@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:get/get.dart'; // for .tr
+import 'package:groc_shopy/core/routes/routes.dart';
+import 'package:groc_shopy/helper/extension/base_extension.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:groc_shopy/core/custom_assets/assets.gen.dart';
 import 'package:groc_shopy/utils/app_colors/app_colors.dart';
@@ -14,6 +16,7 @@ import 'package:groc_shopy/utils/text_style/text_style.dart';
 
 import '../../../core/routes/route_path.dart';
 import '../../widgets/custom_bottons/custom_button/app_button.dart';
+import '../../widgets/custom_navbar/navbar_controller.dart';
 import '../../widgets/payment_modal/payment_modal.dart';
 import '../../widgets/paypal/paypal.dart';
 import '../../widgets/subscription_plans/subscription_plans.dart';
@@ -27,6 +30,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen>
     with SingleTickerProviderStateMixin {
+  final BottomNavController controller = Get.find<BottomNavController>();
   bool isTotal = true;
   late TabController _tabController;
 
@@ -290,19 +294,32 @@ class _ProfileScreenState extends State<ProfileScreen>
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      context.pop();
-                    },
-                    child: Image.asset(
-                      Assets.icons.arrowBackGrey.path,
-                    ),
-                  ),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     context.pop();
+                  //   },
+                  //   child: Image.asset(
+                  //     Assets.icons.arrowBackGrey.path,
+                  //   ),
+                  // ),
+                  SizedBox(),
                   Text(
                     AppStrings.profile.tr,
                     style: AppStyle.kohSantepheap16w700C3F3F3F,
                   ),
-                  const Icon(Icons.more_horiz, color: Colors.grey),
+
+                  InkWell(
+                    onTap: () {
+                      controller.changeIndex(0); // Reset to home
+
+                      context.pushReplacement(RoutePath.auth.addBasePath);
+                    },
+                    child: Icon(
+                      Icons.logout,
+                      color: Colors.grey,
+                      size: 20.sp,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -494,12 +511,12 @@ class UpgradeBanner extends StatelessWidget {
           plans: [
             SubscriptionPlan(
               title: AppStrings.monthlyPremiumPlan,
-              price: '9.99',
+              price: '\$9.99',
               features: [AppStrings.moreScan, AppStrings.unlockMonthlyReport],
             ),
             SubscriptionPlan(
               title: AppStrings.yearlyPremiumPlan,
-              price: '60.99',
+              price: '\$60.99',
               features: [
                 AppStrings.unlimitedScan,
                 AppStrings.unlockYearlyReport,
@@ -507,7 +524,7 @@ class UpgradeBanner extends StatelessWidget {
             ),
           ],
           onSubscribe: (selectedPlan) {
-            Navigator.of(context).pop(); // close bottom sheet first
+            // Navigator.of(context).pop(); // close bottom sheet first
 
             // Then open PayPal page:
             // Navigator.of(context).push(
@@ -515,10 +532,10 @@ class UpgradeBanner extends StatelessWidget {
             //     builder: (_) => PaypalPage(plan: selectedPlan),
             //   ),
             // );
-            context.goNamed(
-              RoutePath.paypal,
-              extra: selectedPlan,
-            );
+            // context.goNamed(
+            //   RoutePath.paypal,
+            //   extra: selectedPlan,
+            // );
           },
         ),
       );
@@ -547,7 +564,7 @@ class UpgradeBanner extends StatelessWidget {
             style: AppStyle.roboto11w400CFFFFFF,
           ),
           AppButton(
-            width: 155.w,
+            width: 170.w,
             height: 32.h,
             backgroundColor: Colors.white,
             borderRadius: 20,

@@ -251,5 +251,5 @@ Map<String, String> german = {
   AppStrings.unlockYearlyReport: 'Jahresbericht freischalten',
 
   AppStrings.pricingInfo:
-      '9,99 € pro Monat oder 60,99 € pro Jahr (60 % sparen). Bezahlung über PayPal. Jederzeit kündbar.',
+      '\$9,99 pro Monat oder \$60,99 pro Jahr (60 % sparen). Bezahlung über PayPal. Jederzeit kündbar.',
 };
