@@ -252,4 +252,6 @@ Map<String, String> german = {
 
   AppStrings.pricingInfo:
       '\$9,99 pro Monat oder \$60,99 pro Jahr (60 % sparen). Bezahlung über PayPal. Jederzeit kündbar.',
+  AppStrings.freeTrialFor: "Testversion für",
+  AppStrings.sevenDays: "7 Tage",
 };

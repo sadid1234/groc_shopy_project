@@ -140,4 +140,6 @@ class AppStrings {
   static const unlimitedScan = 'unlimited_scan';
   static const unlockYearlyReport = 'unlock_yearly_report';
   static const pricingInfo = 'pricing_info';
+  static const freeTrialFor = 'Free Trial For';
+  static const sevenDays = '7days';
 }

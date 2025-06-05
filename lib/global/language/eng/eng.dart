@@ -130,4 +130,6 @@ Map<String, String> english = {
   AppStrings.unlockYearlyReport: 'Unlock Yearly Report',
   AppStrings.pricingInfo:
       'You will be charged \$9.99 (monthly plan) or \$60.99 (annual plan, saving 60% with the yearly plan—just \$0.83/month—through your paypal account. You can cancel at any time if you\'re not satisfied.',
+  AppStrings.freeTrialFor: "Free Trial For",
+  AppStrings.sevenDays: "7days",
 };
