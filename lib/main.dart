@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
     final LanguageController languageController = Get.find();
 
     return ScreenUtilInit(
+      //
       designSize: const Size(393, 852),
       builder: (_, __) {
         return Obx(() => GetMaterialApp.router(
